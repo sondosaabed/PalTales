@@ -14,6 +14,6 @@
         <item name="colorOnSecondary">@color/greiesh</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">30sp</item>
     </style>
 </resources>

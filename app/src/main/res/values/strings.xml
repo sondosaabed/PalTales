@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PalTales</string>
+
+    <string name="welcome">Welcome To PalTales</string>
 </resources>

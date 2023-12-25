@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blackish">
+
+
+    <ImageButton
+        android:id="@+id/movies"
+        android:layout_width="340dp"
+        android:layout_height="267dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="45dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/movies" />
+
+    <ImageButton
+        android:id="@+id/books"
+        android:layout_width="340dp"
+        android:layout_height="267dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="45dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/books" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="333dp"
+        android:layout_height="67dp"
+        android:layout_above="@+id/movies"
+        android:layout_below="@+id/books"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="19dp"
+        android:foregroundGravity="center"
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textColor="@color/whitish" />
+</RelativeLayout>
