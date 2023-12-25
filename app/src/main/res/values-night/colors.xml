@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="whitish">#F6F5F4</color>
-    <color name="blackish">#000000</color>
+    <color name="whitish">F6F5F4</color>
+    <color name="blackish">000000</color>
     <color name="redish">#993B3B</color>
     <color name="light_redish">#9A1212</color>
     <color name="greenish">#064C2B</color>
