@@ -2,4 +2,7 @@
     <string name="app_name">PalTales</string>
 
     <string name="welcome">Welcome To PalTales</string>
+    <string name="login">Log In</string>
+    <string name="email">Email:</string>
+    <string name="pass">Password:</string>
 </resources>

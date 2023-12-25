@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="txtResult" type="id" />
+    <item name="email" type="id" />
+    <item name="password" type="id" />
+    <item name="passValidation" type="id" />
+    <item name="emailValidation" type="id" />
+    <item name="btnLogin" type="id" />
+    <item name="imageView3" type="id" />
+</resources>
