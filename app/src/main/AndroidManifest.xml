@@ -15,6 +15,10 @@
 
         <activity
             android:name="com.paltales.activities.Home"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name="com.paltales.activities.Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
