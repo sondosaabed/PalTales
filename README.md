@@ -2,6 +2,10 @@
 
 In response to the ongoing Israeli offensive Forces, the ethnic cleansing and aparthhied, this app emerges as a platform to illuminate our unique narrative. Palestinians are a resilient and creative people, garnering recognition through various awards in cinema and literature. The app's primary objective is to present insight into the inspiring resilience of our people and our tales.
 
+<div align="center">
+  <img src="https://github.com/sondosaabed/PalTales/assets/65151701/3db20286-2448-43e8-83ba-e2076c44faa8" alt="PalTales Logo" width="200" height="200">
+</div>
+
 It is offered by two services:
 - List of books that delves into the Palestinian narrative.
 - Collection of films, providing a visual representation of our experiences.
