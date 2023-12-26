@@ -3,6 +3,11 @@
 
     <string name="welcome">Welcome To PalTales</string>
     <string name="login">Log In</string>
+    <string name="username">Username</string>
     <string name="email">Email:</string>
     <string name="pass">Password:</string>
+    <string name="create">Create Account</string>
+    <string name="signUp">Sign Up</string>
+    <string name="creat1">Create</string>
+    <string name="remeber">Remember Me</string>
 </resources>
