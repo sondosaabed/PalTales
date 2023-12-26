@@ -1,5 +1,6 @@
 package com.paltales.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ public class Login extends AppCompatActivity {
         Fields
     */
     private Button login;
+    private Button create;
     private TextView email;
     private TextView password;
     private TextView answer; // I will use it to display the answer
@@ -34,6 +36,7 @@ public class Login extends AppCompatActivity {
             Getting the variables in the scene
          */
         setLogin(findViewById(R.id.btnLogin));
+        setCreate(findViewById(R.id.btnCreate));
         setEmail(findViewById(R.id.email));
         setPassword(findViewById(R.id.password));
         setAnswer(findViewById(R.id.txtResult));
@@ -42,6 +45,7 @@ public class Login extends AppCompatActivity {
         setPassValid(findViewById(R.id.passValidation));
 
         handle_login(getLogin());
+        handle_create(getCreate());
     }
 
     /*
@@ -56,7 +60,9 @@ public class Login extends AppCompatActivity {
                 // Authentication successful
                 getEmailValid().setVisibility(View.GONE);
                 getPassValid().setVisibility(View.GONE);
-                getAnswer().setText("Successful!");
+
+                Intent intent = new Intent(this, Home.class);
+                startActivity(intent);
             } else {
                 // Wrong authentication
                 getEmailValid().setVisibility(View.VISIBLE);
@@ -64,6 +70,12 @@ public class Login extends AppCompatActivity {
                 getEmailValid().setText("Wrong Email");
                 getAnswer().setText("Try Again!");
             }
+        });
+    }
+    private void handle_create(Button create) {
+        create.setOnClickListener(v->{
+            Intent intent = new Intent(this, CreateAccount.class);
+            startActivity(intent);
         });
     }
 
@@ -106,5 +118,11 @@ public class Login extends AppCompatActivity {
     }
     public void setPassValid(TextView passValid) {
         this.passValid = passValid;
+    }
+    public Button getCreate() {
+        return create;
+    }
+    public void setCreate(Button create) {
+        this.create = create;
     }
 }
