@@ -1,6 +1,6 @@
-package Utils;
+package com.paltales.Utils;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -9,7 +9,6 @@ public class EncryptPassword {
         I have created this class to encrypt password using hash based encryption
         - https://github.com/sondosaabed/File-Carving-Tool/blob/main/model/CalculateCompareHash.java
      */
-    private static MessageDigest digest;
 
     public static String encryptPassword(String password) throws NoSuchAlgorithmException {
         /*
@@ -17,8 +16,8 @@ public class EncryptPassword {
             Returns: it's encryption using SHA-256
          */
         try {
-            digest = MessageDigest.getInstance("SHA-256");
-            byte[] hashBytes = digest.digest(password.getBytes("UTF-8"));
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(password.getBytes(StandardCharsets.UTF_8));
 
             StringBuilder strb = new StringBuilder();
 
@@ -28,9 +27,7 @@ public class EncryptPassword {
 
             return strb.toString();
         } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
+            throw new NoSuchAlgorithmException();
         }
     }
 
