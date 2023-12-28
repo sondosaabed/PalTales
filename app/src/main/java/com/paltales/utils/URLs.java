@@ -1,4 +1,4 @@
-package com.paltales.Utils;
+package com.paltales.utils;
 
 public class URLs {
     /*

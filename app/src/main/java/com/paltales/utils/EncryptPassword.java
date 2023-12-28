@@ -1,4 +1,4 @@
-package com.paltales.Utils;
+package com.paltales.utils;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
