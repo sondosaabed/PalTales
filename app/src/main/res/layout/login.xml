@@ -7,7 +7,7 @@
     android:background="#FFFFFF"
     android:backgroundTint="@color/blackish"
     android:visibility="visible"
-    tools:context=".activities.Login">
+    tools:context=".activities.LoginActivity">
 
     <Button
         android:id="@+id/btnCreate"

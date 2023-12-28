@@ -12,7 +12,7 @@ import com.paltales.R;
 /*
      this is the Login activity, it will perform login functionality
  */
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     /*
         Fields
     */
@@ -74,7 +74,7 @@ public class Login extends AppCompatActivity {
     }
     private void handle_create(Button create) {
         create.setOnClickListener(v->{
-            Intent intent = new Intent(this, CreateAccount.class);
+            Intent intent = new Intent(this, CreateAccountActivity.class);
             startActivity(intent);
         });
     }

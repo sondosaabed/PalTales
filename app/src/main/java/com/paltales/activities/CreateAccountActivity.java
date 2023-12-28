@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.paltales.R;
 
-public class CreateAccount extends AppCompatActivity {
+public class CreateAccountActivity extends AppCompatActivity {
     Button btnLogin;
     Button btnCreate;
     EditText password;
@@ -40,7 +40,7 @@ public class CreateAccount extends AppCompatActivity {
 
     private void handle_login(Button btnLogin) {
         btnLogin.setOnClickListener(v->{
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         });
     }

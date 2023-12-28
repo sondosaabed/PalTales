@@ -18,7 +18,7 @@
             android:exported="false">
         </activity>
         <activity
-            android:name="com.paltales.activities.Login"
+            android:name="com.paltales.activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.paltales.activities.CreateAccount"
+            android:name="com.paltales.activities.CreateAccountActivity"
             android:exported="false">
         </activity>
     </application>
