@@ -10,4 +10,6 @@
     <string name="signUp">Sign Up</string>
     <string name="creat1">Create</string>
     <string name="remeber">Remember Me</string>
+    <string name="see_mov">See Movies?</string>
+    <string name="see_books">See Books?</string>
 </resources>
