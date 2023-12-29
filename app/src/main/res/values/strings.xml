@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">PalTales</string>
-
     <string name="welcome">Welcome To PalTales</string>
     <string name="login">Log In</string>
     <string name="username">Username</string>
@@ -12,4 +11,8 @@
     <string name="remeber">Remember Me</string>
     <string name="see_mov">See Movies?</string>
     <string name="see_books">See Books?</string>
+    <string name="back">Home</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="start">Getting Started</string>
+    <string name="about">Wanna Know about Palestine? Paltales let\'s explore movies and books about Palestine</string>
 </resources>
