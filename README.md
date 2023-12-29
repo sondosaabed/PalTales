@@ -11,12 +11,15 @@ It is offered by two services:
 - Collection of films, providing a visual representation of our experiences.
 
 Over time, I have personally compiled a list of Palestinian movies and documentaries, both created by Palestinians and others, accessible through the Internet Movies Database (IMDB) which I have used in this app.
+I have also created a list of Palestinian books list on the open library database online.
 
 ### Resources 
 
 ![Stackoverflow custom item of listvew](https://stackoverflow.com/questions/15832335/android-custom-row-item-for-listview)
 
 ![My Palestinian Movies List](https://www.imdb.com/list/ls563010565/?sort=alpha,asc&st_dt=&mode=detail&page=1)
+
+![My Palestinian Books List](https://openlibrary.org/people/sondos_aabed/lists/OL243427L/Palestinian/export?format=json)
 
 ![Volly Documentation](https://google.github.io/volley/)
 
