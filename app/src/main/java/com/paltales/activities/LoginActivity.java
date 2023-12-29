@@ -2,19 +2,14 @@ package com.paltales.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.paltales.R;
-import com.paltales.model.Account;
 import com.paltales.model.Login;
-import com.paltales.utils.Auth;
-import com.paltales.utils.EncryptPassword;
-
-import java.security.NoSuchAlgorithmException;
+import com.paltales.utils.Authenticator;
 
 /*
      this is the Login activity, it will perform login functionality
@@ -64,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             String enteredPassword = getPassword().getText().toString();
             Login enteredlogin = new Login(enteredEmail, enteredPassword);
 
-            boolean autherized = Auth.authorize(enteredlogin ,this);
+            boolean autherized = Authenticator.authorize(enteredlogin ,this);
 
             if (autherized) {
                 // Authentication successful

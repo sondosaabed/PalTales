@@ -2,15 +2,13 @@ package com.paltales.utils;
 
 import android.content.Context;
 
-import androidx.preference.Preference;
-
 import com.paltales.config.Preferences;
 import com.paltales.model.Account;
 import com.paltales.model.Login;
 
 import java.util.ArrayList;
 
-public class Auth {
+public class Authenticator {
     /*
         This util class goes through list of saved accounts
         in prefrences and if the passed login equals one of the acc
