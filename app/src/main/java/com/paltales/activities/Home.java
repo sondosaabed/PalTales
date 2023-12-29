@@ -1,5 +1,6 @@
 package com.paltales.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
 
@@ -30,13 +31,17 @@ public class Home extends AppCompatActivity {
 
     private void handle_movies(ImageButton moviesbtn) {
         moviesbtn.setOnClickListener(e->{
-
+            Intent intent = new Intent(this, ListActivity.class);
+            intent.putExtra("choice", "movies");
+            startActivity(intent);
         });
     }
 
     private void handle_books(ImageButton booksbtn) {
         booksbtn.setOnClickListener(e->{
-
+            Intent intent = new Intent(this, ListActivity.class);
+            intent.putExtra("choice", "books");
+            startActivity(intent);
         });
     }
 
