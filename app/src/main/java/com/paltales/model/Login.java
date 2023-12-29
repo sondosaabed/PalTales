@@ -1,4 +1,9 @@
 package com.paltales.model;
+
+import com.paltales.utils.EncryptPassword;
+
+import java.security.NoSuchAlgorithmException;
+
 /*
 This login Object class will be used in logins
  */
@@ -7,11 +12,12 @@ public class Login {
     private String password;
 
     public Login(String userName, String password){
-
+        // must pass it encrypted to this class EncryptPassword.encryptPassword(password
+        setUserName(userName);
+        setPassword(password);
     }
-    /*
-        Getters & Setters
-     */
+
+    /* Getters & Setters */
     public String getUserName() {
         return userName;
     }
