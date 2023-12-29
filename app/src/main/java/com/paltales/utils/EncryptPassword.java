@@ -31,7 +31,7 @@ public class EncryptPassword {
         }
     }
 
-    public static String compareHashes(String pass, String retreived) throws NoSuchAlgorithmException {
+    public static boolean compareHashes(String pass, String retreived) throws NoSuchAlgorithmException {
         /*
             Takes two strings and compares their hashes
          */
@@ -39,9 +39,9 @@ public class EncryptPassword {
         String retHash = encryptPassword(retreived);
 
         if (passHash.equals(retHash)) {
-            return "Match";
+            return true;
         } else {
-            return "Mismatch";
+            return false;
         }
     }
 }

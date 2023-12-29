@@ -1,0 +1,27 @@
+package com.paltales.utils;
+
+import android.content.Context;
+
+import androidx.preference.Preference;
+
+import com.paltales.config.Preferences;
+import com.paltales.model.Account;
+import com.paltales.model.Login;
+
+import java.util.ArrayList;
+
+public class Auth {
+    /*
+        This util class goes through list of saved accounts
+        in prefrences and if the passed login equals one of the acc
+        returns true and proceed to home activity.
+     */
+    public static boolean authorize(Login login, Context context){
+        ArrayList<Account> accounts = Preferences.loadAccounts(context);
+        for(Account acc: accounts){
+            if(acc.getLogin().equals(login))
+                return true;
+        }
+        return false;
+    }
+}
