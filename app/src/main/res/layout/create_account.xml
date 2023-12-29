@@ -98,20 +98,6 @@
         app:layout_constraintTop_toBottomOf="@+id/usernameLabel" />
 
     <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:backgroundTint="#959B999E"
-        android:text="@string/login"
-        android:textColor="@color/whitish"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/passlabel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passlabel"
-        app:layout_constraintVertical_bias="0.321" />
-
-    <Button
         android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -121,10 +107,9 @@
         android:textColor="@color/whitish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
-        app:layout_constraintStart_toEndOf="@+id/btnLogin"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.584" />
+        app:layout_constraintVertical_bias="0.793" />
 
     <TextView
         android:id="@+id/txtResult"

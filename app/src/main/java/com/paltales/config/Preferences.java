@@ -54,11 +54,11 @@ public class Preferences {
         editor.apply();
     }
 
-    public static ArrayList<Login> loadAccounts(Context context) {
+    public static ArrayList<Account> loadAccounts(Context context) {
         preferences = getPreferences(context);
         Gson gson = new Gson();
         String str = preferences.getString(DATA, "");
-        Login[] logins = gson.fromJson(str, Login[].class);
+        Account[] logins = gson.fromJson(str, Account[].class);
         if(logins != null){
             return new ArrayList<>(Arrays.asList(logins));
         }
@@ -68,11 +68,20 @@ public class Preferences {
     /*
         I created this method to save the logins list which I called after each modification on the list
      */
-    public static void saveAccounts(ArrayList<Account> accounts) {
+    private static void saveAccounts(ArrayList<Account> accounts) {
         Gson gson = new Gson();
         String str = gson.toJson(accounts);
         editor.putString(DATA, str);
         editor.apply();
+    }
+
+    public static void addAccount(Account account, Context context) {
+        /*
+        Add account to DATA and save it
+         */
+        ArrayList<Account> accounts = loadAccounts(context);
+        accounts.add(account);
+        saveAccounts(accounts);
     }
 
     public static SharedPreferences getPreferences(Context context) {

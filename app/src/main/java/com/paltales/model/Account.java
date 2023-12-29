@@ -3,10 +3,10 @@ package com.paltales.model;
 import android.provider.ContactsContract.CommonDataKinds.Email;
 
 public class Account {
-    private Email email;
+    private String email;// string type but validted as email
     private Login login;
 
-    public Account(Email email, Login login){
+    public Account(String email, Login login){
         setEmail(email);
         setLogin(login);
     }
@@ -14,10 +14,10 @@ public class Account {
     /*
     Getters & Setters
      */
-    public Email getEmail() {
+    public String getEmail() {
         return email;
     }
-    public void setEmail(Email email) {
+    public void setEmail(String email) {
         this.email = email;
     }
     public Login getLogin() {
