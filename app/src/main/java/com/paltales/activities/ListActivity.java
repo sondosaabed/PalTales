@@ -1,5 +1,6 @@
 package com.paltales.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -64,10 +65,15 @@ public class ListActivity extends AppCompatActivity {
             /*
                 Like when they click other they can show the other list
              */
-            if(type.equals("movies"))
-                set_list_data("books");
-            else if(type.equals("books"))
-                set_list_data("movies");
+            if(type.equals("movies")){
+                Intent intent = new Intent(this, ListActivity.class);
+                intent.putExtra("choice", "books");
+                startActivity(intent);
+            }else if(type.equals("books")) {
+                Intent intent = new Intent(this, ListActivity.class);
+                intent.putExtra("choice", "movies");
+                startActivity(intent);
+            }
         });
     }
 
