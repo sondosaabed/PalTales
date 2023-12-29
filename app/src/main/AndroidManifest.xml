@@ -12,13 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PalTales"
         tools:targetApi="31">
-
         <activity
-            android:name="com.paltales.activities.Home"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name="com.paltales.activities.LoginActivity"
+            android:name="com.paltales.activities.GettingStarted"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +21,23 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.paltales.activities.WelcomeBack"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name="com.paltales.activities.LoginActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name="com.paltales.activities.CreateAccountActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name="com.paltales.activities.Home"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name="com.paltales.activities.ListActivity"
             android:exported="false">
         </activity>
     </application>
