@@ -1,0 +1,78 @@
+<!-- res/layout/list_item_movie.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp">
+    <!-- Movie Image -->
+    <ImageView
+        android:id="@+id/imageViewMovie"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/placeholder_image" />
+
+        <TextView
+            android:id="@+id/textViewMovieRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rating: "
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <!-- Movie Details -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp">
+
+        <!-- Movie Name -->
+        <TextView
+            android:id="@+id/textViewMovieName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:text="Movie Name" />
+
+        <!-- Movie Description -->
+        <TextView
+            android:id="@+id/textViewMovieDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:text="Movie Description" />
+
+        <!-- Movie Rating -->
+
+        <!-- Movie Genre -->
+        <TextView
+            android:id="@+id/textViewMovieGenre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:text="Genre: " />
+
+        <!-- Movie Date Published -->
+        <TextView
+            android:id="@+id/textViewMovieDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:text="Date: " />
+    </LinearLayout>
+</LinearLayout>
