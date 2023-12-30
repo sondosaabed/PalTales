@@ -62,17 +62,17 @@ public class CreateAccountActivity extends AppCompatActivity {
                 Create account with encrypted password
                 but make sure that the username is not in the accounts already
                  */
-                if(!create_account(getUsername().getText().toString(),
-                        EncryptPassword.encryptPassword(getPassword().getText().toString()),
-                        getEmail().getText().toString().trim()))
-                    getTxtResult().setText(R.string.wronguse);
-
+                    if(!create_account(getUsername().getText().toString(),
+                            EncryptPassword.encryptPassword(getPassword().getText().toString()),
+                            getEmail().getText().toString().trim()))
+                        getTxtResult().setText(R.string.wronguse);
+                    else {
+                        Intent intent = new Intent(this, LoginActivity.class);
+                        startActivity(intent);
+                    }
                 } catch (NoSuchAlgorithmException e) {
                     throw new RuntimeException(e);
                 }
-
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
         });
     }
 
