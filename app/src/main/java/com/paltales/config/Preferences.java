@@ -61,8 +61,13 @@ public class Preferences {
         Account[] logins = gson.fromJson(str, Account[].class);
         if(logins != null){
             return new ArrayList<>(Arrays.asList(logins));
+        }else {
+            Login ADMIN = new Login("Sondos", "#$^*0");
+            Account account = new Account("s@duck.com", ADMIN);
+            ArrayList<Account> accs =  new ArrayList<>();
+            accs.add(account);
+            return accs;
         }
-        return null;
     }
 
     /*
