@@ -6,6 +6,9 @@ import androidx.preference.PreferenceManager;
 import com.google.gson.Gson;
 import com.paltales.model.Account;
 import com.paltales.model.Login;
+import com.paltales.utils.EncryptPassword;
+
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -54,7 +57,7 @@ public class Preferences {
         editor.apply();
     }
 
-    public static ArrayList<Account> loadAccounts(Context context) {
+    public static ArrayList<Account> loadAccounts(Context context) throws NoSuchAlgorithmException {
         preferences = getPreferences(context);
         Gson gson = new Gson();
         String str = preferences.getString(DATA, "");
@@ -62,7 +65,8 @@ public class Preferences {
         if(logins != null){
             return new ArrayList<>(Arrays.asList(logins));
         }else {
-            Login ADMIN = new Login("Sondos", "#$^*0");
+            Login ADMIN = new Login("Sondos",
+                    EncryptPassword.encryptPassword("#$^*0"));
             Account account = new Account("s@duck.com", ADMIN);
             ArrayList<Account> accs =  new ArrayList<>();
             accs.add(account);
@@ -80,7 +84,7 @@ public class Preferences {
         editor.apply();
     }
 
-    public static void addAccount(Account account, Context context) {
+    public static void addAccount(Account account, Context context) throws NoSuchAlgorithmException {
         /*
         Add account to DATA and save it
          */

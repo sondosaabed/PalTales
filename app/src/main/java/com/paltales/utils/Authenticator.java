@@ -6,6 +6,7 @@ import com.paltales.config.Preferences;
 import com.paltales.model.Account;
 import com.paltales.model.Login;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 
 public class Authenticator {
@@ -14,7 +15,7 @@ public class Authenticator {
         in prefrences and if the passed login equals one of the acc
         returns true and proceed to home activity.
      */
-    public static boolean authorize(Login login, Context context){
+    public static boolean authorize(Login login, Context context) throws NoSuchAlgorithmException {
         ArrayList<Account> accounts = Preferences.loadAccounts(context);
         for(Account acc: accounts){
             if(acc.getLogin().getPassword().equals(login.getPassword())
