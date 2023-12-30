@@ -14,12 +14,11 @@
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="0dp"
-        android:layout_height="144dp"
+        android:layout_height="0dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="65dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtResult"
+        app:layout_constraintBottom_toTopOf="@+id/txtResult"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,83 +28,53 @@
         android:id="@+id/txtResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="177dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginEnd="111dp"
+        android:layout_marginBottom="12dp"
         android:text="@string/login"
         android:textColor="@color/greiesh"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/email"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:layout_constraintStart_toStartOf="@+id/mailLabel"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
         android:id="@+id/passValidation"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="11dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="28dp"
         android:fontFamily="cursive"
         android:text="@string/wrongpas"
         android:textColor="#ED1B1B"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/remeberMe"
         app:layout_constraintEnd_toEndOf="@+id/remeberMe"
         app:layout_constraintStart_toStartOf="@+id/pass"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
-        android:id="@+id/pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="89dp"
-        android:text="@string/pass"
-        android:textColor="@color/whitish"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/remeberMe"
-        app:layout_constraintEnd_toStartOf="@+id/password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mailLabel" />
-
-    <TextView
         android:id="@+id/emailValidation"
-        android:layout_width="0dp"
+        android:layout_width="215dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="11dp"
         android:fontFamily="cursive"
         android:text="@string/wrongus"
         android:textColor="#ED1B1B"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/password"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogin"
-        app:layout_constraintStart_toStartOf="@+id/mailLabel"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
-
-    <TextView
-        android:id="@+id/mailLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="273dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="72dp"
-        android:text="@string/username"
-        android:textColor="@color/whitish"
-        android:textStyle="bold"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/pass"
-        app:layout_constraintEnd_toStartOf="@+id/email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/mailLabel" />
 
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="134dp"
         android:backgroundTint="#959B999E"
         android:text="@string/login"
         android:textColor="@color/whitish"
@@ -114,25 +83,12 @@
         app:layout_constraintStart_toEndOf="@+id/dontHave"
         app:layout_constraintTop_toBottomOf="@+id/remeberMe" />
 
-    <CheckBox
-        android:id="@+id/remeberMe"
-        android:layout_width="237dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="185dp"
-        android:text="@string/remeber"
-        android:textColor="@color/whitish"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
-
     <Button
         android:id="@+id/dontHave"
         android:layout_width="0dp"
         android:layout_height="98dp"
         android:layout_marginStart="29dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginTop="56dp"
         android:text="@string/dont"
         android:textColor="@color/greiesh"
         app:layout_constraintEnd_toStartOf="@+id/btnLogin"
@@ -141,22 +97,63 @@
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="202dp"
+        android:layout_height="63dp"
         android:layout_marginEnd="23dp"
-        android:layout_marginBottom="8dp"
         android:ems="10"
-        android:textColor="@color/whitish"
         android:inputType="textPassword"
+        android:textColor="@color/whitish"
         app:layout_constraintBottom_toTopOf="@+id/passValidation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/pass"
         app:layout_constraintTop_toBottomOf="@+id/emailValidation" />
 
+    <TextView
+        android:id="@+id/pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="355dp"
+        android:text="@string/pass"
+        android:textColor="@color/whitish"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailValidation" />
+
+    <TextView
+        android:id="@+id/mailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="273dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/username"
+        android:textColor="@color/whitish"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/emailValidation"
+        app:layout_constraintEnd_toStartOf="@+id/email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/remeberMe"
+        android:layout_width="235dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="33dp"
+        android:text="@string/remeber"
+        android:textColor="@color/whitish"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passValidation" />
+
     <EditText
         android:id="@+id/email"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="209dp"
+        android:layout_height="61dp"
         android:layout_marginEnd="28dp"
         android:ems="10"
         android:inputType="text"

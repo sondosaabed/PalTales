@@ -12,6 +12,9 @@ import com.paltales.R;
 import com.paltales.config.Preferences;
 import com.paltales.model.Login;
 import com.paltales.utils.Authenticator;
+import com.paltales.utils.EncryptPassword;
+
+import java.security.NoSuchAlgorithmException;
 
 /*
      this is the Login activity, it will perform login functionality
@@ -77,19 +80,22 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(view -> {
             String enteredEmail = getEmail().getText().toString();
             String enteredPassword = getPassword().getText().toString();
-            Login enteredlogin = new Login(enteredEmail, enteredPassword);
+            try {
+                Login enteredlogin = new Login(enteredEmail, EncryptPassword.encryptPassword(enteredPassword));
 
-            boolean autherized = Authenticator.authorize(enteredlogin ,this);
-
-            if (autherized) {
-                Intent intent = new Intent(this, Home.class);
-                startActivity(intent);
-            } else {
-                // Wrong authentication
-                getEmailValid().setVisibility(View.VISIBLE);
-                getPassValid().setVisibility(View.VISIBLE);
-                getEmailValid().setText("Wrong Email");
-                getAnswer().setText("Try Again!");
+                boolean autherized = Authenticator.authorize(enteredlogin ,this);
+                if (autherized) {
+                    Intent intent = new Intent(this, Home.class);
+                    startActivity(intent);
+                } else {
+                    // Wrong authentication
+                    getEmailValid().setVisibility(View.VISIBLE);
+                    getPassValid().setVisibility(View.VISIBLE);
+                    getEmailValid().setText("Wrong Email");
+                    getAnswer().setText("Try Again!");
+                }
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         });
     }
