@@ -22,7 +22,6 @@ import java.security.NoSuchAlgorithmException;
     I created this activity to let the user create a new account and save it locally
  */
 public class CreateAccountActivity extends AppCompatActivity {
-    Button btnLogin;
     Button btnCreate;
     EditText password;
     EditText username;
@@ -35,13 +34,11 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     private void initialize() {
-        setBtnLogin(findViewById(R.id.btnLogin));
         setBtnCreate(findViewById(R.id.btnCreate));
         setPassword(findViewById(R.id.password));
         setUsername(findViewById(R.id.username));
         setEmail(findViewById(R.id.email));
 
-        handle_login(getBtnLogin());
         handle_create(getBtnCreate());
     }
 
@@ -85,12 +82,6 @@ public class CreateAccountActivity extends AppCompatActivity {
     /*
     Getters & Setters
      */
-    public Button getBtnLogin() {
-        return btnLogin;
-    }
-    public void setBtnLogin(Button btnLogin) {
-        this.btnLogin = btnLogin;
-    }
     public Button getBtnCreate() {
         return btnCreate;
     }
