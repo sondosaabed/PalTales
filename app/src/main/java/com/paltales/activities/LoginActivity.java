@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.paltales.R;
+import com.paltales.config.Preferences;
 import com.paltales.model.Login;
 import com.paltales.utils.Authenticator;
 
@@ -19,12 +21,13 @@ public class LoginActivity extends AppCompatActivity {
         Fields
     */
     private Button login;
-    private Button create;
+    private Button dontHave;
     private TextView email;
     private TextView password;
     private TextView answer; // I will use it to display the answer
     private TextView emailValid;
     private TextView passValid;
+    private CheckBox remeberMe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,8 @@ public class LoginActivity extends AppCompatActivity {
             Getting the variables in the scene
          */
         setLogin(findViewById(R.id.btnLogin));
-        setCreate(findViewById(R.id.btnCreate));
+        setDontHave(findViewById(R.id.dontHave));
+
         setEmail(findViewById(R.id.email));
         setPassword(findViewById(R.id.password));
         setAnswer(findViewById(R.id.txtResult));
@@ -46,8 +50,24 @@ public class LoginActivity extends AppCompatActivity {
         setEmailValid(findViewById(R.id.emailValidation));
         setPassValid(findViewById(R.id.passValidation));
 
+        setRemeberMe(findViewById(R.id.remeberMe));
+
+        handle_remeberMe(getRemeberMe());
         handle_login(getLogin());
-        handle_create(getCreate());
+        handle_dont_have(getDontHave());
+    }
+
+    private void handle_dont_have(Button dontHave) {
+        dontHave.setOnClickListener(e->{
+            Intent intent = new Intent(this, CreateAccountActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void handle_remeberMe(CheckBox remeberMe) {
+        boolean val = remeberMe.isChecked();
+        if(val==true)
+            Preferences.setRememberME(this);
     }
 
     /*
@@ -62,10 +82,6 @@ public class LoginActivity extends AppCompatActivity {
             boolean autherized = Authenticator.authorize(enteredlogin ,this);
 
             if (autherized) {
-                // Authentication successful
-                getEmailValid().setVisibility(View.GONE);
-                getPassValid().setVisibility(View.GONE);
-
                 Intent intent = new Intent(this, Home.class);
                 startActivity(intent);
             } else {
@@ -75,12 +91,6 @@ public class LoginActivity extends AppCompatActivity {
                 getEmailValid().setText("Wrong Email");
                 getAnswer().setText("Try Again!");
             }
-        });
-    }
-    private void handle_create(Button create) {
-        create.setOnClickListener(v->{
-            Intent intent = new Intent(this, CreateAccountActivity.class);
-            startActivity(intent);
         });
     }
 
@@ -123,10 +133,16 @@ public class LoginActivity extends AppCompatActivity {
     public void setPassValid(TextView passValid) {
         this.passValid = passValid;
     }
-    public Button getCreate() {
-        return create;
+    public Button getDontHave() {
+        return dontHave;
     }
-    public void setCreate(Button create) {
-        this.create = create;
+    public void setDontHave(Button dontHave) {
+        this.dontHave = dontHave;
+    }
+    public CheckBox getRemeberMe() {
+        return remeberMe;
+    }
+    public void setRemeberMe(CheckBox remeberMe) {
+        this.remeberMe = remeberMe;
     }
 }
