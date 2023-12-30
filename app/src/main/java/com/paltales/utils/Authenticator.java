@@ -17,7 +17,8 @@ public class Authenticator {
     public static boolean authorize(Login login, Context context){
         ArrayList<Account> accounts = Preferences.loadAccounts(context);
         for(Account acc: accounts){
-            if(acc.getLogin().equals(login))
+            if(acc.getLogin().getPassword().equals(login.getPassword())
+            && acc.getLogin().getUserName().equals(login.getUserName()))
                 return true;
         }
         return false;
