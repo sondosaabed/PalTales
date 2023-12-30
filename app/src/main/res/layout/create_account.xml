@@ -7,13 +7,26 @@
     android:background="@color/blackish"
     tools:context=".activities.CreateAccountActivity">
 
+    <Button
+        android:id="@+id/alreadyHave"
+        android:layout_width="193dp"
+        android:layout_height="134dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="17dp"
+        android:text="@string/already"
+        android:textColor="@color/greiesh"
+        app:layout_constraintEnd_toStartOf="@+id/btnCreate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passlabel" />
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="236dp"
-        android:layout_height="240dp"
+        android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtResult"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
@@ -23,65 +36,72 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/email"
         android:textColor="@color/whitish"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/usernameLabel"
+        app:layout_constraintEnd_toStartOf="@+id/email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/txtResult" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="type here"
         android:inputType="textEmailAddress"
         android:textColor="@color/whitish"
+        app:layout_constraintBottom_toBottomOf="@+id/mailLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toEndOf="@+id/mailLabel"
-        app:layout_constraintTop_toBottomOf="@+id/txtResult" />
+        app:layout_constraintTop_toTopOf="@+id/mailLabel" />
 
     <TextView
         android:id="@+id/usernameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="21dp"
         android:text="@string/username"
         android:textColor="@color/whitish"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/passlabel"
+        app:layout_constraintEnd_toStartOf="@+id/username"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mailLabel" />
 
     <EditText
         android:id="@+id/username"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="27dp"
         android:ems="10"
         android:hint="type here"
         android:inputType="textEmailAddress"
         android:textColor="@color/whitish"
+        app:layout_constraintBottom_toBottomOf="@+id/usernameLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toEndOf="@+id/usernameLabel"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toTopOf="@+id/usernameLabel" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="36dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="type here"
         android:inputType="textEmailAddress"
         android:textColor="@color/whitish"
+        app:layout_constraintBottom_toTopOf="@+id/alreadyHave"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/passlabel"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
@@ -90,10 +110,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="43dp"
         android:text="@string/pass"
         android:textColor="@color/whitish"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreate"
+        app:layout_constraintEnd_toStartOf="@+id/password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameLabel" />
 
@@ -101,28 +124,26 @@
         android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginBottom="71dp"
         android:backgroundTint="#959B999E"
         android:text="@string/creat1"
         android:textColor="@color/whitish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.793" />
+        app:layout_constraintStart_toEndOf="@+id/alreadyHave"
+        app:layout_constraintTop_toBottomOf="@+id/passlabel" />
 
     <TextView
         android:id="@+id/txtResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/create"
         android:textColor="@color/whitish"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/mailLabel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/mailLabel"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

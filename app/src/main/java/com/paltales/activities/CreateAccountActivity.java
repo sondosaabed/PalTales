@@ -6,6 +6,7 @@ import android.provider.ContactsContract;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.Preference;
@@ -17,16 +18,18 @@ import com.paltales.model.Login;
 import com.paltales.utils.EncryptPassword;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 /*
     I created this activity to let the user create a new account and save it locally
  */
 public class CreateAccountActivity extends AppCompatActivity {
     Button btnCreate;
+    Button already;
     EditText password;
     EditText username;
     EditText email;
-    CheckBox remmeber;
+    TextView txtResult;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
@@ -35,23 +38,34 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     private void initialize() {
         setBtnCreate(findViewById(R.id.btnCreate));
+        setAlready(findViewById(R.id.alreadyHave));
         setPassword(findViewById(R.id.password));
         setUsername(findViewById(R.id.username));
         setEmail(findViewById(R.id.email));
+        setTxtResult(findViewById(R.id.txtResult));
 
         handle_create(getBtnCreate());
+        handle_already(getAlready());
+    }
+
+    private void handle_already(Button already) {
+        already.setOnClickListener(e->{
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void handle_create(Button btnCreate) {
         btnCreate.setOnClickListener(v->{
             try {
                 /*
-                Create password with encrypted password
+                Create account with encrypted password
+                but make sure that the username is not in the accounts already
                  */
-                create_account(getUsername().getText().toString(),
+                if(!create_account(getUsername().getText().toString(),
                         EncryptPassword.encryptPassword(getPassword().getText().toString()),
-                        getEmail().getText().toString().trim(),
-                        getRemmeber().isChecked());
+                        getEmail().getText().toString().trim()))
+                    getTxtResult().setText(R.string.wronguse);
 
                 } catch (NoSuchAlgorithmException e) {
                     throw new RuntimeException(e);
@@ -62,21 +76,17 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
     }
 
-    private void create_account(String username, String password, String email, boolean remeber){
+    private boolean create_account(String username, String password, String email) throws NoSuchAlgorithmException {
         Login login = new Login(username, password);
-        Account account = new Account(getEmail().getText().toString(),login);
+        Account account = new Account(email,login);
 
+        ArrayList<Account> accounts = Preferences.loadAccounts(this);
+        for(Account acc: accounts){
+            if(acc.getLogin().getUserName().equals(username))
+                return false;
+        }
         Preferences.addAccount(account, this);
-
-        if(remeber == true)
-            Preferences.setRememberME(this);
-    }
-
-    private void handle_login(Button btnLogin) {
-        btnLogin.setOnClickListener(v->{
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        });
+        return true;
     }
 
     /*
@@ -106,10 +116,16 @@ public class CreateAccountActivity extends AppCompatActivity {
     public void setEmail(EditText email) {
         this.email = email;
     }
-    public CheckBox getRemmeber() {
-        return remmeber;
+    public Button getAlready() {
+        return already;
     }
-    public void setRemmeber(CheckBox remmeber) {
-        this.remmeber = remmeber;
+    public void setAlready(Button already) {
+        this.already = already;
+    }
+    public TextView getTxtResult() {
+        return txtResult;
+    }
+    public void setTxtResult(TextView txtResult) {
+        this.txtResult = txtResult;
     }
 }

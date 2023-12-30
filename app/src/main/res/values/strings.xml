@@ -5,6 +5,7 @@
     <string name="username">Username</string>
     <string name="email">Email:</string>
     <string name="wrongus">Wrong Username</string>
+    <string name="wronguse">Pick another username</string>
     <string name="wrongpas">Wrong password</string>
     <string name="pass">Password:</string>
     <string name="create">Create Account</string>
@@ -17,5 +18,6 @@
     <string name="welcome_back">Welcome Back!</string>
     <string name="start">Getting Started</string>
     <string name="dont">Create account?</string>
+    <string name="already">Already have account?</string>
     <string name="about">Wanna Know about Palestine? Paltales let\'s explore movies and books about Palestine</string>
 </resources>
