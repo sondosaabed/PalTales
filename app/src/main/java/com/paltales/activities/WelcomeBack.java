@@ -17,7 +17,7 @@ public class WelcomeBack extends AppCompatActivity {
     /*
         Attributes
      */
-    Button start;
+    private Button start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

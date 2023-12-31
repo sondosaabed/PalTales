@@ -24,12 +24,12 @@ import java.util.ArrayList;
     I created this activity to let the user create a new account and save it locally
  */
 public class CreateAccountActivity extends AppCompatActivity {
-    Button btnCreate;
-    Button already;
-    EditText password;
-    EditText username;
-    EditText email;
-    TextView txtResult;
+    private Button btnCreate;
+    private Button already;
+    private EditText password;
+    private EditText username;
+    private EditText email;
+    private TextView txtResult;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);

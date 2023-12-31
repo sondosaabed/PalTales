@@ -12,8 +12,8 @@ import com.paltales.R;
 This is the home activity where the users choses what they wanna see wether it's movies or books
  */
 public class Home extends AppCompatActivity {
-    ImageButton moviesbtn;
-    ImageButton booksbtn;
+    private ImageButton moviesbtn;
+    private ImageButton booksbtn;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
