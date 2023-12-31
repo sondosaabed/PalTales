@@ -1,4 +1,4 @@
-package com.paltales.activities;
+package com.paltales.data;
 
 import android.content.Context;
 import android.view.LayoutInflater;

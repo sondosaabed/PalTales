@@ -2,8 +2,6 @@ package com.paltales.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -11,10 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.paltales.R;
 import com.paltales.model.Book;
-import com.paltales.model.BookApi;
+import com.paltales.data.BookAdapter;
 //import com.paltales.model.GETRequestData;
-import com.paltales.model.Movie;
-import com.paltales.utils.URLs;
 
 import java.util.ArrayList;
 
