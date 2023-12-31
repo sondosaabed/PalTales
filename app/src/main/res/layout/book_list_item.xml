@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:text="Book Title"
             android:textColor="@color/whitish"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Author"
             android:textColor="@color/whitish"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/bookLink"
