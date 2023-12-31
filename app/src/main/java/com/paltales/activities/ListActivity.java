@@ -2,6 +2,7 @@ package com.paltales.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -10,9 +11,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.paltales.R;
 import com.paltales.model.Book;
-import com.paltales.model.GETRequestData;
+import com.paltales.model.BookApi;
+//import com.paltales.model.GETRequestData;
 import com.paltales.model.Movie;
 import com.paltales.utils.URLs;
+
+import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
     private ListView list;
@@ -42,21 +46,40 @@ public class ListActivity extends AppCompatActivity {
         /*
             In this method the list shown is based on the choice of the user
          */
-        if(type.equals("books")){
-            GETRequestData<Book> requestData = new GETRequestData<>(URLs.BOOKS_URL, this);
-            ArrayAdapter<Book> listAdapter = new ArrayAdapter<>(this,
-                    R.layout.book_list_item,
-                    requestData.getData()
-            );
+        if (type.equals("books")) {
+            ArrayList<Book> books = new ArrayList<>();
+
+            books.add(new Book("The Catcher in the Rye", "123456", "/works/OL123456W", "/authors/OL654321A"));
+            books.add(new Book("To Kill a Mockingbird", "789012", "/works/OL789012W", "/authors/OL123456A"));
+            books.add(new Book("1984", "345678", "/works/OL345678W", "/authors/OL987654A"));
+            books.add(new Book("Pride and Prejudice", "901234", "/works/OL901234W", "/authors/OL567890A"));
+
+            BookAdapter listAdapter = new BookAdapter(ListActivity.this, books);
             getList().setAdapter(listAdapter);
 
+   /*
+            BookApi bookApi = new BookApi(this);
+            BookApi.OnBooksReceivedListener booksReceivedListener = new BookApi.OnBooksReceivedListener() {
+                @Override
+                public void onBooksReceived(ArrayList<Book> books) {
+                    BookAdapter listAdapter = new BookAdapter(ListActivity.this, books);
+                    getList().setAdapter(listAdapter);
+                }
+                @Override
+                public void onError(String errorMessage) {
+                    Log.e("BookApi", "Error: " + errorMessage);
+                }
+            };
+            bookApi.getBooks(booksReceivedListener);
+
+    */
         }else if(type.equals("movies")){
-            GETRequestData<Movie> requestData = new GETRequestData<>(URLs.MOVIES_URL, this);
-            ArrayAdapter<Movie> listAdapter = new ArrayAdapter<>(this,
-                    R.layout.movie_list_item,
-                    requestData.getData()
-            );
-            getList().setAdapter(listAdapter);
+//            GETRequestData<Movie> requestData = new GETRequestData<>(URLs.MOVIES_URL, this);
+//            ArrayAdapter<Movie> listAdapter = new ArrayAdapter<>(this,
+//                    R.layout.movie_list_item,
+//                    requestData.getData()
+//            );
+//            getList().setAdapter(listAdapter);
         }
     }
 
@@ -76,7 +99,6 @@ public class ListActivity extends AppCompatActivity {
             }
         });
     }
-
     /*
         Getters & Setters
      */
