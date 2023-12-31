@@ -17,6 +17,8 @@ I have also created a list of Palestinian books list on the open library databas
 
 ![Stackoverflow custom item of listvew](https://stackoverflow.com/questions/15832335/android-custom-row-item-for-listview)
 
+![Stackoverflow custom listAdapter](https://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
+
 ![My Palestinian Movies List](https://www.imdb.com/list/ls563010565/?sort=alpha,asc&st_dt=&mode=detail&page=1)
 
 ![My Palestinian Books List](https://openlibrary.org/people/sondos_aabed/lists/OL243427L/Palestinian/export?format=json)

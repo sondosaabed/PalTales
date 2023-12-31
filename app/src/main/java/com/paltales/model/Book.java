@@ -13,6 +13,10 @@ public class Book {
         setAuthor("https://openlibrary.org/authors/"+author);
     }
 
+    public Book() {
+
+    }
+
     /*
        Getters & Setters
     */
