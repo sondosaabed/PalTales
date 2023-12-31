@@ -8,8 +8,10 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.paltales.R;
+import com.paltales.data.MovieAdapter;
 import com.paltales.model.Book;
 import com.paltales.data.BookAdapter;
+import com.paltales.model.Movie;
 //import com.paltales.model.GETRequestData;
 
 import java.util.ArrayList;
@@ -53,29 +55,18 @@ public class ListActivity extends AppCompatActivity {
             BookAdapter listAdapter = new BookAdapter(ListActivity.this, books);
             getList().setAdapter(listAdapter);
 
-   /*
-            BookApi bookApi = new BookApi(this);
-            BookApi.OnBooksReceivedListener booksReceivedListener = new BookApi.OnBooksReceivedListener() {
-                @Override
-                public void onBooksReceived(ArrayList<Book> books) {
-                    BookAdapter listAdapter = new BookAdapter(ListActivity.this, books);
-                    getList().setAdapter(listAdapter);
-                }
-                @Override
-                public void onError(String errorMessage) {
-                    Log.e("BookApi", "Error: " + errorMessage);
-                }
-            };
-            bookApi.getBooks(booksReceivedListener);
-
-    */
         }else if(type.equals("movies")){
-//            GETRequestData<Movie> requestData = new GETRequestData<>(URLs.MOVIES_URL, this);
-//            ArrayAdapter<Movie> listAdapter = new ArrayAdapter<>(this,
-//                    R.layout.movie_list_item,
-//                    requestData.getData()
-//            );
-//            getList().setAdapter(listAdapter);
+
+            ArrayList<Movie> movies = new ArrayList<>();
+
+            movies.add(new Movie("https://www.imdb.com/title/tt6156350/", "HyperNormalisation", "https://m.media-amazon.com/images/M/MV5BNWFlNDlkYWMtODEyOC00MjY1LWIyM2EtMzVjNjQ2YmM4NzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg", 5));
+            movies.add(new Movie("https://www.imdb.com/title/tt6156350/", "HyperNormalisation", "https://m.media-amazon.com/images/M/MV5BNWFlNDlkYWMtODEyOC00MjY1LWIyM2EtMzVjNjQ2YmM4NzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg", 4));
+            movies.add(new Movie("https://www.imdb.com/title/tt6156350/", "HyperNormalisation", "https://m.media-amazon.com/images/M/MV5BNWFlNDlkYWMtODEyOC00MjY1LWIyM2EtMzVjNjQ2YmM4NzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg", 3));
+            movies.add(new Movie("https://www.imdb.com/title/tt6156350/", "HyperNormalisation", "https://m.media-amazon.com/images/M/MV5BNWFlNDlkYWMtODEyOC00MjY1LWIyM2EtMzVjNjQ2YmM4NzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg", 4));
+
+
+            MovieAdapter listAdapter = new MovieAdapter(ListActivity.this, movies);
+            getList().setAdapter(listAdapter);
         }
     }
 
