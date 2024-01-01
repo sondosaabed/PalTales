@@ -8,7 +8,6 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.Gson;
 import com.paltales.R;
 import com.paltales.data.BookAPI;
 import com.paltales.data.MovieAPI;
@@ -72,7 +71,7 @@ public class ListActivity extends AppCompatActivity {
             });
         }else if(type.equals("movies")){
             MovieAPI movieApiHandler = new MovieAPI(this);
-            movieApiHandler.getMovies(new MovieAPI.MovieAPII() {
+            movieApiHandler.getItems(new MovieAPI.MovieAPII() {
                 @Override
                 public void onSuccess(List<Movie> movies) {
                     MovieAdapter listAdapter = new MovieAdapter(ListActivity.this, movies);
@@ -119,14 +118,8 @@ public class ListActivity extends AppCompatActivity {
     public void setOther(Button other) {
         this.other = other;
     }
-    public List<Book> getBooks() {
-        return books;
-    }
     public void setBooks(List<Book> books) {
         this.books = books;
-    }
-    public List<Movie> getMovies() {
-        return movies;
     }
     public void setMovies(List<Movie> movie) {
         this.movies = movie;
