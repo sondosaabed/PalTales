@@ -3,90 +3,99 @@
 -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blackish">
+    android:background="@color/blackish"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-2dp">
 
     <ImageView
         android:id="@+id/coverimage"
-        android:layout_width="298dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="59dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="58dp"
-        app:layout_constraintBottom_toBottomOf="@+id/url"
+        android:layout_width="314dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="69dp"
+        app:layout_constraintBottom_toTopOf="@+id/url"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/titleItem"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintTop_toBottomOf="@+id/titleItem" />
 
     <TextView
         android:id="@+id/titleItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="18dp"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/coverimage"
+        app:layout_constraintBottom_toTopOf="@+id/coverimage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrooll"
-        android:layout_width="326dp"
-        android:layout_height="129dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBack"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/url"
-        app:layout_constraintVertical_bias="0.439">
+        app:layout_constraintTop_toBottomOf="@+id/url"
+        android:textAlignment="center">
 
         <TextView
             android:id="@+id/describtiontxt"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="70dp"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_marginStart="20sp"
+            tools:layout_editor_absoluteX="34dp"
+            tools:layout_editor_absoluteY="525dp" />
     </ScrollView>
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="84dp"
         android:backgroundTint="#959B999E"
         android:text="@string/backk"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/scrooll" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrooll" />
 
     <TextView
         android:id="@+id/yearOrAuther"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
+        android:layout_marginTop="374dp"
+        android:layout_marginBottom="11dp"
         android:textColor="@color/greiesh"
-        app:layout_constraintBottom_toTopOf="@+id/coverimage"
-        app:layout_constraintEnd_toEndOf="@+id/coverimage" />
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/url"
+        app:layout_constraintEnd_toEndOf="@+id/coverimage"
+        app:layout_constraintStart_toStartOf="@+id/coverimage"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/url"
-        android:layout_width="327dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="140dp"
+        android:layout_width="348dp"
+        android:layout_height="82dp"
+        android:layout_marginBottom="344dp"
         android:autoLink="web"
         android:linksClickable="true"
+        android:paddingBottom="20sp"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnBack"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearOrAuther" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,7 +45,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
         TextView linkTextView = convertView.findViewById(R.id.bookLink);
 
         if (book != null) {
-            Picasso.get().load(book.getCover()).fit().into(bookCoverImageView);
+            Picasso.get().load(book.getCover()).fit().centerInside().into(bookCoverImageView);
 
             titleTextView.setText(book.getTitle());
             authorTextView.setText(book.getAuthor());
@@ -57,7 +57,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
             String jsonString = new Gson().toJson(book);
             Intent intent = new Intent(getContext(), ShowItemActivity.class);
             intent.putExtra("item", jsonString);
-            intent.putExtra("type", "movies");
+            intent.putExtra("type", "books");
             getContext().startActivity(intent);
         });
 
