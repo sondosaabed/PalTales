@@ -34,8 +34,10 @@ A complete android app was developed that provides the following functionalities
 - The app reads data from real external web servicces, Only **Volly API** was used.
 _Over time, I have personally compiled a list of Palestinian movies and documentaries, both created by Palestinians and others, accessible through the Internet Movies Database (IMDB) which I have used in this app. I have also created a list of Palestinian books list on the open library database online._
 So this requiremnt is met by these by these two services:
-- List of books that delves into the Palestinian narrative: https://openlibrary.org/people/sondos_aabed/lists/OL243427L/Palestinian/export?format=json
-- Collection of films, providing a visual representation of our experiences: https://github.com/sondosaabed/Palestinian-Movies-JSON-Dataset/tree/main
+- List of books that delves into the Palestinian narrative:
+-     https://openlibrary.org/people/sondos_aabed/lists/OL243427L/Palestinian/export?format=json
+- Collection of films, providing a visual representation of our experiences:
+-     https://github.com/sondosaabed/Palestinian-Movies-JSON-Dataset/tree/main
 
 ### Additional Features
 - Password Encryption using SHA-256 algorithm. (MessageDigest Java)
