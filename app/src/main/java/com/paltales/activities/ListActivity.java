@@ -19,6 +19,11 @@ import com.paltales.model.Movie;
 
 import java.util.List;
 
+/*
+     As part of reducing the code redunduncy
+     here comes this class to be used for both types of
+     works (movies & books) and based on the type diffrent list items are used
+ */
 public class ListActivity extends AppCompatActivity {
     private ListView list;
     private Button other;
@@ -67,7 +72,7 @@ public class ListActivity extends AppCompatActivity {
          */
         if (type.equals("books")) {
             BookAPI bookApiHandler = new BookAPI(this);
-            bookApiHandler.getBooks(new BookAPI.BookAPII() {
+            bookApiHandler.getItems(new BookAPI.BookAPII() {
                 @Override
                 public void onSuccess(List<Book> books) {
                     BookAdapter listAdapter = new BookAdapter(ListActivity.this, books);

@@ -13,7 +13,9 @@ import com.paltales.R;
 import com.paltales.model.Book;
 import com.paltales.model.Movie;
 import com.squareup.picasso.Picasso;
-
+/*
+This activity is used to show an item when clicked on the list item with more details
+ */
 public class ShowItemActivity extends AppCompatActivity {
     private ImageView image; //Cover & poster
     private TextView title; //title & name

@@ -24,7 +24,11 @@ public class Home extends AppCompatActivity {
     private void initialize() {
         setBooksbtn(findViewById(R.id.books));
         setMoviesbtn(findViewById(R.id.movies));
-
+        /*
+            If the books is clicked redirect user to the movies List
+            If the movies is clicked redircet user to the books list
+            & sent type of the work (book or movie) as extra string
+         */
         handle_books(getBooksbtn());
         handle_movies(getMoviesbtn());
     }

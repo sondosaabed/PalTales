@@ -73,9 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             Preferences.setRememberME(this);
     }
 
-    /*
-        Handlers
-     */
+    /* Handlers  */
     private void handle_login(Button login) {
         login.setOnClickListener(view -> {
             String enteredEmail = getEmail().getText().toString();
@@ -83,8 +81,8 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 Login enteredlogin = new Login(enteredEmail, EncryptPassword.encryptPassword(enteredPassword));
 
-                boolean autherized = Authenticator.authorize(enteredlogin ,this);
-                if (autherized) {
+                boolean authorized = Authenticator.authorize(enteredlogin ,this);
+                if (authorized) {
                     Intent intent = new Intent(this, Home.class);
                     startActivity(intent);
                 } else {
