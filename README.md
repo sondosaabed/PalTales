@@ -40,11 +40,11 @@ So this requiremnt is met by these by these two services:
 - Password Encryption using SHA-256 algorithm. (MessageDigest Java)
 - One device can create multiple accounts and be saved in their shared prefrences.
 - Check if first time users from prefrences.
-- Provided an ADMIN account _(although I don't like this logic of me doing that because it was hard coded #TODO)_
+- Provided an ADMIN account _(I created it for testing although I don't like this logic of me doing that because it was hard coded #TODO)_
 - Created Custom List Items using Linear Layout for Book & Movie Object.
 - Created Custom Adapters for books & movies.
 - Implemneting Generic Programming _(in some cases I fail to do so, but have reduced a lot of code redundancy since there exists intersections in the two Data types)_
-- Used (API) interface to be implemnted for both books & movies (I figured since they have the same methods)
+- Created (API) interface to be implemnted for both books & movies (I figured since they have the same methods but didn't finish this yet since it's addtional)
 
 ### DEMO (UX)
 
