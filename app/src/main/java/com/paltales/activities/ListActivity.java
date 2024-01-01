@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.paltales.R;
 import com.paltales.data.BookAPI;
 import com.paltales.data.MovieAPI;
@@ -22,6 +22,8 @@ import java.util.List;
 public class ListActivity extends AppCompatActivity {
     private ListView list;
     private Button other;
+    List<Book> books;
+    List<Movie> movies;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list);
@@ -33,22 +35,28 @@ public class ListActivity extends AppCompatActivity {
         setList(findViewById(R.id.list));
 
         String type = getIntent().getStringExtra("choice");
-        if(type != null)
-            if(type.equals("books"))
+        if(type != null) {
+            set_list_data(type);
+            if (type.equals("books")) {
                 getOther().setText(getResources().getString(R.string.see_mov));
-            else if(type.equals("movies"))
+                handle_list_onClick(getList(), type, getMovies());
+            } else if (type.equals("movies")) {
                 getOther().setText(getResources().getString(R.string.see_books));
-
-        set_list_data(type);
-        handle_list_onClick(getList(), type);
-        handle_other(getOther(), type);
+                handle_list_onClick(getList(), type, getBooks());
+            }
+            handle_other(getOther(), type);
+        }
     }
 
-    private void handle_list_onClick(ListView list, String type) {
-        list.setOnClickListener(e->{
-                //(parent, view, position, id) -> {
+    private <T> void handle_list_onClick(ListView list, String type, List<T> items) {
+        list.setOnItemClickListener((parent, view, position, id) -> {
+            T selectedItem = items.get(position);
+
+            String jsonString = new Gson().toJson(selectedItem);
+
             Intent intent = new Intent(this, ShowItemActivity.class);
-//            intent.putExtra("selectedTaskID", id);
+            intent.putExtra("item", jsonString);//selectedItem.toString());
+            intent.putExtra("type",type); // I will use it to check if the item is book or movie
             startActivity(intent);
         });
     }
@@ -64,12 +72,12 @@ public class ListActivity extends AppCompatActivity {
                 public void onSuccess(List<Book> books) {
                     BookAdapter listAdapter = new BookAdapter(ListActivity.this, books);
                     getList().setAdapter(listAdapter);
+                    setBooks(books);
                 }
 
                 @Override
                 public void onError(String errorMessage) {
                     Log.d("error", errorMessage);
-                    Toast.makeText(ListActivity.this, "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
                 }
             });
         }else if(type.equals("movies")){
@@ -79,12 +87,12 @@ public class ListActivity extends AppCompatActivity {
                 public void onSuccess(List<Movie> movies) {
                     MovieAdapter listAdapter = new MovieAdapter(ListActivity.this, movies);
                     getList().setAdapter(listAdapter);
+                    setMovies(movies);
                 }
 
                 @Override
                 public void onError(String errorMessage) {
                     Log.d("error", errorMessage);
-                    Toast.makeText(ListActivity.this, "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -120,5 +128,17 @@ public class ListActivity extends AppCompatActivity {
     }
     public void setOther(Button other) {
         this.other = other;
+    }
+    public List<Book> getBooks() {
+        return books;
+    }
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+    public List<Movie> getMovies() {
+        return movies;
+    }
+    public void setMovies(List<Movie> movie) {
+        this.movies = movie;
     }
 }
