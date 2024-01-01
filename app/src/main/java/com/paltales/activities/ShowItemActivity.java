@@ -8,7 +8,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
 import com.paltales.R;
+import com.paltales.model.Book;
+import com.paltales.model.Movie;
+import com.squareup.picasso.Picasso;
 
 public class ShowItemActivity extends AppCompatActivity {
     private ImageView image; //Cover & poster
@@ -33,17 +37,37 @@ public class ShowItemActivity extends AppCompatActivity {
         setPlot(findViewById(R.id.describtiontxt));
 
         String type = getIntent().getStringExtra("type");
+        String jsonString = getIntent().getStringExtra("item");
 
-        handle_data(type);
+        Object obj = handle_data(type, jsonString);
+        if(type.equals("movies")){
+            Movie movie = (Movie) obj;
+            getTtitle().setText(movie.getName());
+            getUrl().setText(movie.getUrl());
+            getYearOrAuthor().setText(movie.getYear());
+            getPlot().setText(movie.getPlot());
+            Picasso.get().load(movie.getImage()).into(getImage());
+
+        }else if(type.equals("books")){
+            Book book = (Book) obj;
+            getTtitle().setText(book.getTitle());
+            getUrl().setText(book.getKey());
+            getYearOrAuthor().setText(book.getAuthor());
+            getPlot().setText(book.getDescription());
+            Picasso.get().load(book.getCover()).into(getImage());
+        }
         handle_back(getBack(), type);
     }
 
-    private void handle_data(String type) {
+    private <T> T handle_data(String type, String jsonString) {
         if (type.equals("movies")) {
-
+            Movie movie = new Gson().fromJson(jsonString, Movie.class);
+            return (T) movie;
         }else if(type.equals("books")){
-
+            Book book = new Gson().fromJson(jsonString, Book.class);
+            return (T) book;
         }
+        return null;
     }
 
     private void handle_back(Button back, String type) {
