@@ -11,7 +11,8 @@ It is offered by two services:
 - Collection of films, providing a visual representation of our experiences.
 
 Over time, I have personally compiled a list of Palestinian movies and documentaries, both created by Palestinians and others, accessible through the Internet Movies Database (IMDB) which I have used in this app.
-I have also created a list of Palestinian books list on the open library database online.
+I have also created a list of Palestinian books list on the open library database online. 
+https://github.com/sondosaabed/Palestinian-Movies-JSON-Dataset/tree/main 
 
 ### Resources 
 
@@ -20,6 +21,8 @@ I have also created a list of Palestinian books list on the open library databas
 ![Stackoverflow custom listAdapter](https://stackoverflow.com/questions/8166497/custom-adapter-for-list-view)
 
 ![My Palestinian Movies List](https://www.imdb.com/list/ls563010565/?sort=alpha,asc&st_dt=&mode=detail&page=1)
+
+![APIfy IMDB Advanced Scrapper](https://console.apify.com/actors/tFtRJkJ8nIiFx2Qq7/console)
 
 ![My Palestinian Books List](https://openlibrary.org/people/sondos_aabed/lists/OL243427L/Palestinian/export?format=json)
 
