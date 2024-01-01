@@ -34,12 +34,12 @@ public class MovieAPI {
         void onError(String errorMessage);
     }
 
-    public void getMovies(final MovieAPII callback) {
+    public void getItems(final MovieAPII callback) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, API_URL, null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        List<Movie> movies = parseMovies(response);
+                        List<Movie> movies = parseItems(response);
                         callback.onSuccess(movies);
                     }
                 }, new Response.ErrorListener() {
@@ -52,7 +52,7 @@ public class MovieAPI {
         requestQueue.add(jsonObjectRequest);
     }
 
-    private List<Movie> parseMovies(JSONObject response) {
+    private List<Movie> parseItems(JSONObject response) {
         List<Movie> movies = new ArrayList<>();
 
         try {
