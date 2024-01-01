@@ -31,33 +31,41 @@
         app:layout_constraintStart_toStartOf="@+id/coverimage"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/describtiontxt"
-        android:layout_width="329dp"
-        android:layout_height="104dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="70dp"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
+    <ScrollView
+        android:id="@+id/scrooll"
+        android:layout_width="326dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/url"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.439">
+
+        <TextView
+            android:id="@+id/describtiontxt"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="70dp"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </ScrollView>
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="60dp"
         android:layout_marginBottom="64dp"
         android:backgroundTint="#959B999E"
         android:text="@string/backk"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/describtiontxt" />
+        app:layout_constraintStart_toStartOf="@+id/scrooll" />
 
     <TextView
         android:id="@+id/yearOrAuther"
