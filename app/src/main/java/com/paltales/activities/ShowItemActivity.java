@@ -41,24 +41,26 @@ public class ShowItemActivity extends AppCompatActivity {
         String type = getIntent().getStringExtra("type");
         String jsonString = getIntent().getStringExtra("item");
 
-        Object obj = handle_data(type, jsonString);
-        if(type.equals("movies")){
-            Movie movie = (Movie) obj;
-            getTtitle().setText(movie.getName());
-            getUrl().setText(movie.getUrl());
-            getYearOrAuthor().setText(String.valueOf(movie.getYear()));
-            getPlot().setText(movie.getPlot());
-            Picasso.get().load(movie.getImage()).into(getImage());
+        if(type != null && jsonString != null) {
+            Object obj = handle_data(type, jsonString);
+            if (type.equals("movies")) {
+                Movie movie = (Movie) obj;
+                getTtitle().setText(movie.getName());
+                getUrl().setText(movie.getUrl());
+                getYearOrAuthor().setText(String.valueOf(movie.getYear()));
+                getPlot().setText(movie.getPlot());
+                Picasso.get().load(movie.getImage()).into(getImage());
 
-        }else if(type.equals("books")){
-            Book book = (Book) obj;
-            getTtitle().setText(book.getTitle());
-            getUrl().setText(book.getKey());
-            getYearOrAuthor().setText(book.getAuthor());
-            getPlot().setText(book.getDescription());
-            Picasso.get().load(book.getCover()).into(getImage());
+            } else if (type.equals("books")) {
+                Book book = (Book) obj;
+                getTtitle().setText(book.getTitle());
+                getUrl().setText(book.getKey());
+                getYearOrAuthor().setText(book.getAuthor());
+                getPlot().setText(book.getDescription());
+                Picasso.get().load(book.getCover()).into(getImage());
+            }
+            handle_back(getBack(), type);
         }
-        handle_back(getBack(), type);
     }
 
     private <T> T handle_data(String type, String jsonString) {
