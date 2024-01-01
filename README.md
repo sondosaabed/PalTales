@@ -9,16 +9,21 @@ In response to the ongoing Israeli offensive Forces, the ethnic cleansing and ap
 ## Features:
 A complete android app was developed that provides the following functionalities:
 ### Requiremnts
+- The app reads data from real external web servicces.
+- Only Volly API was used.
+- The App have variety of views: TextEdit, TextView, Button, ListView, ImageView
+- The App have variety of Layout Managers: Contriant Layout, Relative Layout, Linear Layout.
+- The contains the following activities (was required at least 4):
+  - Create Account Activity:
 - Have Centralized design styles (light and dark themes), that are related to the concept (Palestine Flag Colors) 
 <img src="https://github.com/sondosaabed/PalTales/assets/65151701/fd07a2f8-c32e-4d45-8678-f27ed514be54" alt="Palestine Flag Colors" width="300">
 
-  -	#F6F5F4 White
-  -	#000000 Black
-  -	#993B3B Red
-  -	#9A1212 Red Light
-  -	#064C2B Green
-  -	#A8A196 Grey
-
+    -	#F6F5F4 White
+    -	#000000 Black
+    -	#993B3B Red
+    -	#9A1212 Red Light
+    -	#064C2B Green
+    -	#A8A196 Grey
 #### Web Services
 _Over time, I have personally compiled a list of Palestinian movies and documentaries, both created by Palestinians and others, accessible through the Internet Movies Database (IMDB) which I have used in this app. I have also created a list of Palestinian books list on the open library database online._
 So this requiremnt is met by these by these two services:
