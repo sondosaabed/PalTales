@@ -1,6 +1,6 @@
 # PalTales
 
-In response to the ongoing Israeli offensive Forces, the ethnic cleansing and aparthhied, this app emerges as a platform to illuminate our unique narrative. Palestinians are a resilient and creative people, garnering recognition through various awards in cinema and literature. The app's primary objective is to present insight into the inspiring resilience of our people and our tales.
+In response to the ongoing Israeli offensive Forces, the ethnic cleansing and aparthhied, this app emerges as a platform to illuminate our unique narrative. Palestinians are a resilient and creative people, garnering recognition through various awards in cinema and literature. The app's primary objective is to present insight into the inspiring resilience of our people and our tales. Hence the name (Pal: Palestine, Tales).
 
 <div align="center">
   <img src="https://github.com/sondosaabed/PalTales/assets/65151701/3db20286-2448-43e8-83ba-e2076c44faa8" alt="PalTales Logo" width="200" height="200">
@@ -16,7 +16,13 @@ A complete android app was developed that provides the following functionalities
 - The contains the following activities (was required at least 4):
   - Create Account Activity: Users are able to to register and create multiple accounts in the same device. Where there data is saved locally.
   - Loign Activity: Provides login Functionality, with a remeber me feature that saves on their local storage (the last account set to remeber me is the one that is remebered).
-- Have Centralized design styles (light and dark themes), that are related to the concept (Palestine Flag Colors) 
+  - Home Activity: let's the user chose if tehy want to broswe movies or books. 
+  - List Activity: based on what they want to broswe they are shown either a list of movies or a list of books provided by the json response of two web services.
+  - Item Activity: is shown on click the item (Movie || Book) Details
+  - Tow Informational Activites:
+    - Getting Started: If (is first time) and redirects to create account.
+    - Welcome Back: If rember me is set leads to Home, if there is no remeber me then Login.
+- Have Centralized and coceptual design styles (light and dark themes), that are related to the concept (Palestine Flag Colors) 
 <img src="https://github.com/sondosaabed/PalTales/assets/65151701/fd07a2f8-c32e-4d45-8678-f27ed514be54" alt="Palestine Flag Colors" width="300">
 
     -	#F6F5F4 White
