@@ -18,7 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookAPI {
-
+    /*
+        In this Implemetation, a volly request queue is made on JSON FIle
+        that contains data about books. Below there is an example of the
+        JSON OBjects that is returned and the logic of parsing
+     */
     private static final String API_URL = URLs.BOOKS_URL;
     private RequestQueue requestQueue;
 
@@ -32,12 +36,12 @@ public class BookAPI {
         void onError(String errorMessage);
     }
 
-    public void getBooks(final BookAPII callback) {
+    public void getItems(final BookAPII callback) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, API_URL, null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        List<Book> books = parseBooks(response);
+                        List<Book> books = parseItems(response);
                         callback.onSuccess(books);
                     }
                 }, new Response.ErrorListener() {
@@ -50,7 +54,7 @@ public class BookAPI {
         requestQueue.add(jsonObjectRequest);
     }
 
-    private List<Book> parseBooks(JSONObject response) {
+    private List<Book> parseItems(JSONObject response) {
         /*
             This is the parsing logic based on the Postman response way
             The resoinse is an array called "works" and the works are
@@ -59,6 +63,84 @@ public class BookAPI {
             So based on my desire I only took the attribites that I need in
             the book list item like author link, book url, the title
             and the image
+
+            this is an example of the response
+            {
+          "works": [
+            {
+              "description": {
+                "type": "/type/text",
+                "value": "\"In this groundbreaking book, published on the fiftieth anniversary of the Occupation, the outspoken and radical Israeli historian Ilan Pappé examines the most contested ideas concerning the origins and identity of the contemporary state of Israel. The \"ten myths\" that Pappé explores--repeated endlessly in the media, enforced by the military, accepted without question by the world's governments--reinforce the regional status quo. He explores the claim that Palestine was an empty land at the time of the Balfour Declaration, as well as the formation of Zionism and its role in the early decades of nation building. He asks whether the Palestinians voluntarily left their homeland in 1948, and whether June 1967 was a war of \"no choice.\" Turning to the myths surrounding the failures of the Camp David Accords and the official reasons for the attacks on Gaza, Pappé explains why the two-state solution is no longer viable.\"--Publisher's description."
+              },
+              "key": "/works/OL20054379W",
+              "authors": [
+                {
+                  "type": {
+                    "key": "/type/author_role"
+                  },
+                  "author": {
+                    "key": "/authors/OL690129A"
+                  }
+                },
+                {
+                  "type": {
+                    "key": "/type/author_role"
+                  },
+                  "author": {
+                    "key": "/authors/OL7989898A"
+                  }
+                }
+              ],
+              "title": "Ten myths about Israel",
+              "subject_places": [
+                "Palestine",
+                "Israel"
+              ],
+              "subjects": [
+                "Politics and government",
+                "Palestinian Arabs",
+                "Arab-Israeli conflict",
+                "History",
+                "Palestinian arabs",
+                "Arab-israeli conflict",
+                "Palestine, history",
+                "Israel, politics and government",
+                "Israele",
+                "Palestina",
+                "Colonialismo",
+                "Apartheid"
+              ],
+              "type": {
+                "key": "/type/work"
+              },
+              "covers": [
+                11174269,
+                14298432,
+                14298433,
+                14298434,
+                14298435,
+                12248753
+              ],
+              "links": [
+                {
+                  "title": "La recensione di Michele Giorgio su «Pagine esteri»",
+                  "url": "https://pagineesteri.it/2022/05/26/cultura/libri-ilan-pappe-10-miti-su-israele/",
+                  "type": {
+                    "key": "/type/link"
+                  }
+                }
+              ],
+              "latest_revision": 7,
+              "revision": 7,
+              "created": {
+                "type": "/type/datetime",
+                "value": "2019-07-19T22:52:39.773703"
+              },
+              "last_modified": {
+                "type": "/type/datetime",
+                "value": "2023-12-15T04:14:20.316601"
+              }
+            },
          */
         List<Book> books = new ArrayList<>();
 
