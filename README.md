@@ -44,6 +44,7 @@ So this requiremnt is met by these by these two services:
 - Created Custom List Items using Linear Layout for Book & Movie Object.
 - Created Custom Adapters for books & movies.
 - Implemneting Generic Programming _(in some cases I fail to do so, but have reduced a lot of code redundancy since there exists intersections in the two Data types)_
+- Used (API) interface to be implemnted for both books & movies (I figured since they have the same methods)
 
 ### DEMO (UX)
 
