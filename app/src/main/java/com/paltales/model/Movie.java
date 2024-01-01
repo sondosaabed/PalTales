@@ -1,16 +1,18 @@
 package com.paltales.model;
 
 public class Movie {
-    private String url; //"url": "https://www.imdb.com/title/tt6156350/"
     private String name; //"name": "HyperNormalisation",
     private String image; //"image": "https://m.media-amazon.com/images/M/MV5BNWFlNDlkYWMtODEyOC00MjY1LWIyM2EtMzVjNjQ2YmM4NzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
-    private int ratingValue;
+    private String url; //"url": "https://www.imdb.com/title/ + id"
+    private String plot;
+    private int year;
 
-    public Movie(String url, String name, String image, int ratingValue) {
-        setUrl(url);
+    public Movie(String id, String name, String image, int year, String plot) {
+        setUrl("https://www.imdb.com/title/"+id);
         setName(name);
         setImage(image);
-        setRatingValue(ratingValue);
+        setYear(year);
+        setPlot(plot);
     }
     /*
        Getters & Setters
@@ -33,10 +35,16 @@ public class Movie {
     public void setImage(String image) {
         this.image = image;
     }
-    public int getRatingValue() {
-        return ratingValue;
+    public int getYear() {
+        return year;
     }
-    public void setRatingValue(int ratingValue) {
-        this.ratingValue = ratingValue;
+    public void setYear(int year) {
+        this.year = year;
+    }
+    public String getPlot() {
+        return plot;
+    }
+    public void setPlot(String plot) {
+        this.plot = plot;
     }
 }

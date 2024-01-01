@@ -41,7 +41,7 @@ public class MovieAdapter  extends ArrayAdapter<Movie> {
             Picasso.get().load(movie.getImage()).into(coverImageView);
 
             titleTextView.setText(movie.getName());
-            ratingTextView.setText(String.valueOf(movie.getRatingValue()));
+            ratingTextView.setText(String.valueOf(movie.getYear()));
             linkTextView.setText(movie.getUrl());
         }
         return convertView;

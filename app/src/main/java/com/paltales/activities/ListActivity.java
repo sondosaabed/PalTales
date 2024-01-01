@@ -2,19 +2,22 @@ package com.paltales.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.paltales.R;
+import com.paltales.data.BookAPI;
+import com.paltales.data.MovieAPI;
 import com.paltales.data.MovieAdapter;
 import com.paltales.model.Book;
 import com.paltales.data.BookAdapter;
 import com.paltales.model.Movie;
-//import com.paltales.model.GETRequestData;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ListActivity extends AppCompatActivity {
     private ListView list;
@@ -37,7 +40,17 @@ public class ListActivity extends AppCompatActivity {
                 getOther().setText(getResources().getString(R.string.see_books));
 
         set_list_data(type);
+        handle_list_onClick(getList(), type);
         handle_other(getOther(), type);
+    }
+
+    private void handle_list_onClick(ListView list, String type) {
+        list.setOnClickListener(e->{
+                //(parent, view, position, id) -> {
+            Intent intent = new Intent(this, ShowItemActivity.class);
+//            intent.putExtra("selectedTaskID", id);
+            startActivity(intent);
+        });
     }
 
     private void set_list_data(String type) {
@@ -45,28 +58,35 @@ public class ListActivity extends AppCompatActivity {
             In this method the list shown is based on the choice of the user
          */
         if (type.equals("books")) {
-            ArrayList<Book> books = new ArrayList<>();
+            BookAPI bookApiHandler = new BookAPI(this);
+            bookApiHandler.getBooks(new BookAPI.BookAPII() {
+                @Override
+                public void onSuccess(List<Book> books) {
+                    BookAdapter listAdapter = new BookAdapter(ListActivity.this, books);
+                    getList().setAdapter(listAdapter);
+                }
 
-            books.add(new Book("The Catcher in the Rye", "123456", "/works/OL123456W", "/authors/OL654321A"));
-            books.add(new Book("To Kill a Mockingbird", "789012", "/works/OL789012W", "/authors/OL123456A"));
-            books.add(new Book("1984", "345678", "/works/OL345678W", "/authors/OL987654A"));
-            books.add(new Book("Pride and Prejudice", "901234", "/works/OL901234W", "/authors/OL567890A"));
-
-            BookAdapter listAdapter = new BookAdapter(ListActivity.this, books);
-            getList().setAdapter(listAdapter);
-
+                @Override
+                public void onError(String errorMessage) {
+                    Log.d("error", errorMessage);
+                    Toast.makeText(ListActivity.this, "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
+                }
+            });
         }else if(type.equals("movies")){
+            MovieAPI movieApiHandler = new MovieAPI(this);
+            movieApiHandler.getMovies(new MovieAPI.MovieAPII() {
+                @Override
+                public void onSuccess(List<Movie> movies) {
+                    MovieAdapter listAdapter = new MovieAdapter(ListActivity.this, movies);
+                    getList().setAdapter(listAdapter);
+                }
 
-            ArrayList<Movie> movies = new ArrayList<>();
-
-            movies.add(new Movie("https://www.imdb.com/title/tt6156350/", "HyperNormalisation", "https://m.media-amazon.com/images/M/MV5BNWFlNDlkYWMtODEyOC00MjY1LWIyM2EtMzVjNjQ2YmM4NzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg", 5));
-            movies.add(new Movie("https://www.imdb.com/title/tt6156350/", "HyperNormalisation", "https://m.media-amazon.com/images/M/MV5BNWFlNDlkYWMtODEyOC00MjY1LWIyM2EtMzVjNjQ2YmM4NzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg", 4));
-            movies.add(new Movie("https://www.imdb.com/title/tt6156350/", "HyperNormalisation", "https://m.media-amazon.com/images/M/MV5BNWFlNDlkYWMtODEyOC00MjY1LWIyM2EtMzVjNjQ2YmM4NzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg", 3));
-            movies.add(new Movie("https://www.imdb.com/title/tt6156350/", "HyperNormalisation", "https://m.media-amazon.com/images/M/MV5BNWFlNDlkYWMtODEyOC00MjY1LWIyM2EtMzVjNjQ2YmM4NzE4XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg", 4));
-
-
-            MovieAdapter listAdapter = new MovieAdapter(ListActivity.this, movies);
-            getList().setAdapter(listAdapter);
+                @Override
+                public void onError(String errorMessage) {
+                    Log.d("error", errorMessage);
+                    Toast.makeText(ListActivity.this, "Error: " + errorMessage, Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 
