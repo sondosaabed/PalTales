@@ -40,5 +40,9 @@
             android:name="com.paltales.activities.ListActivity"
             android:exported="false">
         </activity>
+        <activity
+            android:name="com.paltales.activities.ShowItemActivity"
+            android:exported="false">
+        </activity>
     </application>
 </manifest>
