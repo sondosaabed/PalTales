@@ -57,6 +57,7 @@ So this requiremnt is met by these by these two services:
 - ![APIfy IMDB Advanced Scrapper](https://console.apify.com/actors/tFtRJkJ8nIiFx2Qq7/console)
 - ![My Palestinian Books List](https://openlibrary.org/people/sondos_aabed/lists/OL243427L/Palestinian/export?format=json)
 - ![picasso for cached images](https://github.com/square/picasso)
+- ![Android Image Loading Libraries?](https://medium.com/@kostadin.georgiev90/android-image-loading-libraries-picasso-vs-glide-vs-coil-90e3fb6c0068)
 - ![Volly Documentation](https://google.github.io/volley/)
 - ![Login Activity I created before](https://github.com/sondosaabed/Mobile-Application-Login/)
 - ![Lecture Code Volley2](https://github.com/szainbzu/volley2/)
