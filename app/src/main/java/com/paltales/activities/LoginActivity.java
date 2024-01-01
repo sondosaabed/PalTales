@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     // Wrong authentication
                     getEmailValid().setVisibility(View.VISIBLE);
                     getPassValid().setVisibility(View.VISIBLE);
-                    getEmailValid().setText("Wrong Email");
+                    getEmailValid().setText("Wrong Username");
                     getAnswer().setText("Try Again!");
                 }
             } catch (NoSuchAlgorithmException e) {
