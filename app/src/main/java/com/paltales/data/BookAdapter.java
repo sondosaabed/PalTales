@@ -17,7 +17,11 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class BookAdapter extends ArrayAdapter<Book> {
-
+    /*
+        In this class I create a custom Array Adapter for the books listveiw
+        Inspired by:
+            https://stackoverflow.com/questions/8166497/custom-adapter-for-list-view
+     */
     public BookAdapter(Context context, List<Book> books) {
         super(context, 0, books);
     }

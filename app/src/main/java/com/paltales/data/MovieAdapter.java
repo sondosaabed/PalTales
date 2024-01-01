@@ -17,8 +17,11 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class MovieAdapter  extends ArrayAdapter<Movie> {
-
-
+    /*
+        In this class I create a custom Array Adapter for the books listveiw
+        Inspired by:
+            https://stackoverflow.com/questions/8166497/custom-adapter-for-list-view
+     */
     public MovieAdapter(Context context, List<Movie> movies) {
         super(context, 0, movies);
     }

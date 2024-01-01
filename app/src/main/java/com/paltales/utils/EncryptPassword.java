@@ -31,10 +31,16 @@ public class EncryptPassword {
         }
     }
 
+    /*
+
+        I hash the string once taken so no need to use this method
+        the strings that will be compred on Authenticator will already be comparing
+        two hashed encrypted strings
+
     public static boolean compareHashes(String pass, String retreived) throws NoSuchAlgorithmException {
-        /*
-            Takes two strings and compares their hashes
-         */
+
+            //Takes two strings and compares their hashes
+
         String passHash = encryptPassword(pass);
         String retHash = encryptPassword(retreived);
 
@@ -44,4 +50,5 @@ public class EncryptPassword {
             return false;
         }
     }
+    */
 }
