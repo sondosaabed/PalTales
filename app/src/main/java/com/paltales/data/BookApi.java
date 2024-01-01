@@ -160,9 +160,8 @@ public class BookAPI {
                 }
 
                 String description ="";
-                JSONArray descriptionArray = workObject.optJSONArray("description");
-                if (descriptionArray != null && descriptionArray.length() > 0) {
-                    JSONObject descriptionObject = descriptionArray.getJSONObject(0);
+                JSONObject descriptionObject = workObject.optJSONObject("description");
+                if (descriptionObject != null) {
                     description = descriptionObject.optString("value", "");
                 }
 
