@@ -1,7 +1,6 @@
 package com.paltales.data;
 
 import android.content.Context;
-import android.util.Log;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -14,108 +13,90 @@ import com.paltales.utils.URLs;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.List;
 
-public class BookApi {
+public class BookAPI {
 
-    private static final String BASE_URL = URLs.BOOKS_URL;
+    private static final String API_URL = URLs.BOOKS_URL;
+    private RequestQueue requestQueue;
 
-    private final Context context;
-    private final RequestQueue requestQueue;
-
-    public BookApi(Context context) {
-        this.context = context;
-        this.requestQueue = Volley.newRequestQueue(context);
+    public BookAPI(Context context) {
+        requestQueue = Volley.newRequestQueue(context);
     }
 
-    public interface OnBooksReceivedListener {
-        void onBooksReceived(ArrayList<Book> books);
+    public interface BookAPII {
+        void onSuccess(List<Book> books);
 
         void onError(String errorMessage);
     }
 
-    public void getBooks(OnBooksReceivedListener listener) {
-        String url = BASE_URL;
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
+    public void getBooks(final BookAPII callback) {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, API_URL, null, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray worksArray = response.getJSONArray("works");
-                            if (worksArray != null) {
-                                ArrayList<Book> books = parseBooks(worksArray);
-                                listener.onBooksReceived(books);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                            listener.onError("Error parsing JSON: " + e.getMessage());
-                        }
+                        List<Book> books = parseBooks(response);
+                        callback.onSuccess(books);
                     }
-                },
-                new Response.ErrorListener() {
+                }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        listener.onError("Error in the request: " + error.getMessage());
+                        callback.onError(error.getMessage());
                     }
                 });
 
         requestQueue.add(jsonObjectRequest);
     }
 
-    private ArrayList<Book> parseBooks(JSONArray worksArray) {
-        ArrayList<Book> books = new ArrayList<>();
-        for (int i = 0; i < worksArray.length(); i++) {
-            try {
-                JSONObject bookObject = worksArray.getJSONObject(i);
-                // Parse the Book object and add it to the list
-                Book book = parseBook(bookObject);
+    private List<Book> parseBooks(JSONObject response) {
+        /*
+            This is the parsing logic based on the Postman response way
+            The resoinse is an array called "works" and the works are
+            books and each book has diffrent attributes, and each attribute
+            could have diffrent types like arrays etc.
+            So based on my desire I only took the attribites that I need in
+            the book list item like author link, book url, the title
+            and the image
+         */
+        List<Book> books = new ArrayList<>();
+
+        try {
+            JSONArray worksArray = response.getJSONArray("works");
+
+            for (int i = 0; i < worksArray.length(); i++) {
+                JSONObject workObject = worksArray.getJSONObject(i);
+
+                String title = workObject.optString("title", "");
+                String key = workObject.optString("key", "");
+
+                JSONArray authorsArray = workObject.optJSONArray("authors");
+                String authorKey = "";
+                if (authorsArray != null && authorsArray.length() > 0) {
+                    JSONObject authorObject = authorsArray.getJSONObject(0);
+                    authorKey = authorObject.getJSONObject("author").optString("key", "");
+                }
+
+                String cover = "";
+                JSONArray coversArray = workObject.optJSONArray("covers");
+                if (coversArray != null && coversArray.length() > 0) {
+                    cover = String.valueOf(coversArray.get(0));
+                }
+
+                String description ="";
+                JSONArray descriptionArray = workObject.optJSONArray("description");
+                if (descriptionArray != null && descriptionArray.length() > 0) {
+                    JSONObject descriptionObject = descriptionArray.getJSONObject(0);
+                    description = descriptionObject.optString("value", "");
+                }
+
+                Book book = new Book(title, cover, key, authorKey, description);
                 books.add(book);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                Log.d("JSONException", "Error parsing Book object: " + e.getMessage());
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return books;
     }
-
-    private Book parseBook(JSONObject jsonObject) {
-        Book book = new Book();
-
-        JSONArray worksArray = jsonObject.optJSONArray("works");
-        if (worksArray != null) {
-            for (int i = 0; i < worksArray.length(); i++) {
-                try {
-                    JSONObject workObject = worksArray.getJSONObject(i);
-
-                    if (workObject != null) {
-                        String title = jsonObject.optString("title", "");
-                        String cover = jsonObject.optJSONArray("covers").optString(0,"");
-                        String key = jsonObject.optString("key","");
-                        String author = jsonObject.optJSONArray("authors").optJSONObject(0).optJSONObject("author").optString("key","");
-
-                        book.setTitle(title);
-                        book.setAuthor(author);
-                        book.setCover(cover);
-                        book.setKey(key);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        return book;
-    }
 }
-    /*
-    private Book parseBook(JSONObject jsonObject) throws JSONException {
-        String title = jsonObject.optString("title", "");
-        String cover = jsonObject.optJSONArray("covers").optString(0,"");
-        String key = jsonObject.optString("key","");
-        String author = jsonObject.optJSONArray("authors").optJSONObject(0).optJSONObject("author").optString("key","");
-
-        return new Book(title, cover, key, author);
-    }
-}
-     */
