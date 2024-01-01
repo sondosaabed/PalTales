@@ -44,26 +44,11 @@ public class ListActivity extends AppCompatActivity {
             set_list_data(type);
             if (type.equals("books")) {
                 getOther().setText(getResources().getString(R.string.see_mov));
-                handle_list_onClick(getList(), type, getMovies());
             } else if (type.equals("movies")) {
                 getOther().setText(getResources().getString(R.string.see_books));
-                handle_list_onClick(getList(), type, getBooks());
             }
             handle_other(getOther(), type);
         }
-    }
-
-    private <T> void handle_list_onClick(ListView list, String type, List<T> items) {
-        list.setOnItemClickListener((parent, view, position, id) -> {
-            T selectedItem = items.get(position);
-
-            String jsonString = new Gson().toJson(selectedItem);
-
-            Intent intent = new Intent(this, ShowItemActivity.class);
-            intent.putExtra("item", jsonString);//selectedItem.toString());
-            intent.putExtra("type",type); // I will use it to check if the item is book or movie
-            startActivity(intent);
-        });
     }
 
     private void set_list_data(String type) {

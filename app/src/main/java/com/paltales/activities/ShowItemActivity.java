@@ -14,7 +14,7 @@ import com.paltales.model.Book;
 import com.paltales.model.Movie;
 import com.squareup.picasso.Picasso;
 /*
-This activity is used to show an item when clicked on the list item with more details
+    This activity is used to show an item when clicked on the list item with more details
  */
 public class ShowItemActivity extends AppCompatActivity {
     private ImageView image; //Cover & poster
@@ -46,7 +46,7 @@ public class ShowItemActivity extends AppCompatActivity {
             Movie movie = (Movie) obj;
             getTtitle().setText(movie.getName());
             getUrl().setText(movie.getUrl());
-            getYearOrAuthor().setText(movie.getYear());
+            getYearOrAuthor().setText(String.valueOf(movie.getYear()));
             getPlot().setText(movie.getPlot());
             Picasso.get().load(movie.getImage()).into(getImage());
 
@@ -76,11 +76,11 @@ public class ShowItemActivity extends AppCompatActivity {
         back.setOnClickListener(e->{
             if(type.equals("movies")){
                 Intent intent = new Intent(this, ListActivity.class);
-                intent.putExtra("type","movies");
+                intent.putExtra("choice","movies");
                 startActivity(intent);
             }else if(type.equals("books")){
                 Intent intent = new Intent(this, ListActivity.class);
-                intent.putExtra("type","books");
+                intent.putExtra("choice","books");
                 startActivity(intent);
             }
         });

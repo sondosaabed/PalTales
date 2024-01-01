@@ -1,16 +1,20 @@
 package com.paltales.data;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.Gson;
 import com.paltales.R;
+import com.paltales.activities.ShowItemActivity;
 import com.paltales.model.Book;
 import com.squareup.picasso.Picasso;
 
@@ -47,6 +51,16 @@ public class BookAdapter extends ArrayAdapter<Book> {
             authorTextView.setText(book.getAuthor());
             linkTextView.setText(book.getKey());
         }
+
+        RelativeLayout relLay = convertView.findViewById(R.id.relLayBook);
+        relLay.setOnClickListener(v -> {
+            String jsonString = new Gson().toJson(book);
+            Intent intent = new Intent(getContext(), ShowItemActivity.class);
+            intent.putExtra("item", jsonString);
+            intent.putExtra("type", "movies");
+            getContext().startActivity(intent);
+        });
+
         return convertView;
     }
 }
