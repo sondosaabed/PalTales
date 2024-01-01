@@ -17,6 +17,8 @@ A complete android app was developed that provides the following functionalities
 - The activites have **variety of attributes**: TextEdit(Diffrent input Types), TextView, Button, ListView, ImageView, ScrollView
 - The layouts have **variety of Layout Managers**: Contriant Layout, Relative Layout, Linear Layout.
 - The project have **Centralized and coceptual design** styles (light and dark themes), that are related to the concept (Palestine Flag Colors) 
+
+<div align="center">
 <img src="https://github.com/sondosaabed/PalTales/assets/65151701/fd07a2f8-c32e-4d45-8678-f27ed514be54" alt="Palestine Flag Colors" width="300">
 
     -	#F6F5F4 White
@@ -25,7 +27,6 @@ A complete android app was developed that provides the following functionalities
     -	#9A1212 Red Light
     -	#064C2B Green
     -	#A8A196 Grey
-<div align="center">
   <img src="https://github.com/sondosaabed/PalTales/assets/65151701/3db20286-2448-43e8-83ba-e2076c44faa8" alt="PalTales Logo" width="200" height="200">
 </div>
 
