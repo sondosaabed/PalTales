@@ -5,16 +5,14 @@ public class Book {
     private String cover; //https://covers.openlibrary.org/b/id/ + (899119)  + .jpg
     private String key;// https://openlibrary.org + key
     private String author;// https://openlibrary.org/authors/ + key
+    private String description; // paragraph about the book
 
-    public Book(String title, String cover, String key, String author) {
+    public Book(String title, String cover, String key, String author, String description) {
         setTitle(title);
         setCover("https://covers.openlibrary.org/b/id/"+cover+".jpg");
         setKey("https://openlibrary.org"+key);
-        setAuthor("https://openlibrary.org/authors/"+author);
-    }
-
-    public Book() {
-
+        setAuthor("https://openlibrary.org"+author);
+        setDescription(description);
     }
 
     /*
@@ -43,5 +41,11 @@ public class Book {
     }
     public void setAuthor(String author) {
         this.author = author;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
