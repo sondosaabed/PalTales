@@ -1,6 +1,6 @@
 # PalTales
 
-In response to the ongoing Israeli offensive Forces, the ethnic cleansing and aparthhied, this app emerges as a platform to illuminate our unique narrative. Palestinians are a resilient and creative people, garnering recognition through various awards in cinema and literature. The app's primary objective is to present insight into the inspiring resilience of our people and our tales. Hence the name (Pal: Palestine, Tales).
+In response to the ongoing Israeli offensive Forces, the ethnic cleansing and aparthhied of the Palestinian People, this app emerges as a platform to illuminate our unique narrative. Palestinians are resilient and creative, garnering recognition through various awards in cinema and literature with these works. The app's primary objective is to present insight into the inspiring resilience of our people and our tales. Hence the name (Pal: Palestine, Tales).
 
 ## Features:
 A complete android app was developed that provides the following functionalities:
