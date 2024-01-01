@@ -32,6 +32,8 @@
             android:id="@+id/bookAuthor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoLink="web"
+            android:linksClickable="true"
             android:text="Author"
             android:textColor="@color/whitish"
             android:textSize="18sp" />

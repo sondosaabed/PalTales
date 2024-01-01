@@ -4,8 +4,8 @@ public class Book {
     private String title;
     private String cover; //https://covers.openlibrary.org/b/id/ + (899119)  + .jpg
     private String key;// https://openlibrary.org + key
-    private String author;// https://openlibrary.org/authors/ + key
     private String description; // paragraph about the book
+    private String author;// https://openlibrary.org/authors/ + key
 
     public Book(String title, String cover, String key, String author, String description) {
         setTitle(title);
