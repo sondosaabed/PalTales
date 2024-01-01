@@ -41,7 +41,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
         TextView linkTextView = convertView.findViewById(R.id.bookLink);
 
         if (book != null) {
-            Picasso.get().load(book.getCover()).into(bookCoverImageView);
+            Picasso.get().load(book.getCover()).fit().into(bookCoverImageView);
 
             titleTextView.setText(book.getTitle());
             authorTextView.setText(book.getAuthor());

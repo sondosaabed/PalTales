@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/movieCover"
-        android:layout_width="133dp"
-        android:layout_height="153dp"
+        android:layout_width="123dp"
+        android:layout_height="160dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="16dp"
