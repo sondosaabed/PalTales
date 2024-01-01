@@ -29,7 +29,6 @@
             android:id="@+id/movieTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Movie Name"
             android:textColor="@color/whitish"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -38,7 +37,6 @@
             android:id="@+id/rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rating"
             android:textColor="@color/whitish"
             android:textSize="18sp" />
 
@@ -48,7 +46,6 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:linksClickable="true"
-            android:text="Learn More"
             android:textColor="@color/redish"
             android:textSize="16sp" />
     </LinearLayout>

@@ -20,15 +20,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/titleItem"
-        app:layout_constraintVertical_bias="0.111"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintVertical_bias="0.111" />
 
     <TextView
         android:id="@+id/titleItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="Title"
         android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="@+id/coverimage"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +39,6 @@
         android:layout_marginTop="71dp"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="70dp"
-        android:text="Describtion"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -67,7 +64,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="17dp"
-        android:text="year or author"
         android:textColor="@color/greiesh"
         app:layout_constraintBottom_toTopOf="@+id/coverimage"
         app:layout_constraintEnd_toEndOf="@+id/coverimage" />
@@ -79,7 +75,6 @@
         android:layout_marginBottom="140dp"
         android:autoLink="web"
         android:linksClickable="true"
-        android:text="url"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"

@@ -29,7 +29,6 @@
             android:id="@+id/bookTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Book Title"
             android:textColor="@color/whitish"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -40,7 +39,6 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:linksClickable="true"
-            android:text="Author"
             android:textColor="@color/whitish"
             android:textSize="18sp" />
 
@@ -50,7 +48,6 @@
             android:layout_height="wrap_content"
             android:autoLink="web"
             android:linksClickable="true"
-            android:text="Read More"
             android:textColor="@color/redish"
             android:textSize="16sp" />
     </LinearLayout>
