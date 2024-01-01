@@ -2,10 +2,6 @@
 
 In response to the ongoing Israeli offensive Forces, the ethnic cleansing and aparthhied, this app emerges as a platform to illuminate our unique narrative. Palestinians are a resilient and creative people, garnering recognition through various awards in cinema and literature. The app's primary objective is to present insight into the inspiring resilience of our people and our tales. Hence the name (Pal: Palestine, Tales).
 
-<div align="center">
-  <img src="https://github.com/sondosaabed/PalTales/assets/65151701/3db20286-2448-43e8-83ba-e2076c44faa8" alt="PalTales Logo" width="200" height="200">
-</div>
-
 ## Features:
 A complete android app was developed that provides the following functionalities:
 ### Requiremnts
@@ -29,6 +25,10 @@ A complete android app was developed that provides the following functionalities
     -	#9A1212 Red Light
     -	#064C2B Green
     -	#A8A196 Grey
+<div align="center">
+  <img src="https://github.com/sondosaabed/PalTales/assets/65151701/3db20286-2448-43e8-83ba-e2076c44faa8" alt="PalTales Logo" width="200" height="200">
+</div>
+
 #### Web Services
 - The app reads data from real external web servicces, Only **Volly API** was used.
 _Over time, I have personally compiled a list of Palestinian movies and documentaries, both created by Palestinians and others, accessible through the Internet Movies Database (IMDB) which I have used in this app. I have also created a list of Palestinian books list on the open library database online._
