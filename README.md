@@ -14,7 +14,8 @@ A complete android app was developed that provides the following functionalities
 - The App have variety of views: TextEdit, TextView, Button, ListView, ImageView
 - The App have variety of Layout Managers: Contriant Layout, Relative Layout, Linear Layout.
 - The contains the following activities (was required at least 4):
-  - Create Account Activity:
+  - Create Account Activity: Users are able to to register and create multiple accounts in the same device. Where there data is saved locally.
+  - Loign Activity: Provides login Functionality, with a remeber me feature that saves on their local storage (the last account set to remeber me is the one that is remebered).
 - Have Centralized design styles (light and dark themes), that are related to the concept (Palestine Flag Colors) 
 <img src="https://github.com/sondosaabed/PalTales/assets/65151701/fd07a2f8-c32e-4d45-8678-f27ed514be54" alt="Palestine Flag Colors" width="300">
 
