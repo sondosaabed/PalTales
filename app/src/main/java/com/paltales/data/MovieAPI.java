@@ -35,19 +35,12 @@ public class MovieAPI {
     }
 
     public void getItems(final MovieAPII callback) {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, API_URL, null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        List<Movie> movies = parseItems(response);
-                        callback.onSuccess(movies);
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        callback.onError(error.getMessage());
-                    }
-                });
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, API_URL, null,
+                response -> {
+                    List<Movie> movies = parseItems(response);
+                    callback.onSuccess(movies);
+                },
+                error -> callback.onError(error.getMessage()));
 
         requestQueue.add(jsonObjectRequest);
     }

@@ -37,19 +37,12 @@ public class BookAPI {
     }
 
     public void getItems(final BookAPII callback) {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.GET, API_URL, null, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        List<Book> books = parseItems(response);
-                        callback.onSuccess(books);
-                    }
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        callback.onError(error.getMessage());
-                    }
-                });
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, API_URL, null,
+                response -> {
+                    List<Book> books = parseItems(response);
+                    callback.onSuccess(books);
+                },
+                error -> callback.onError(error.getMessage()));
 
         requestQueue.add(jsonObjectRequest);
     }
