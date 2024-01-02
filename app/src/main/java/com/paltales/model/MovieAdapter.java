@@ -1,4 +1,4 @@
-package com.paltales.data;
+package com.paltales.model;
 
 import android.content.Context;
 import android.content.Intent;

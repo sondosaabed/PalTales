@@ -11,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.paltales.R;
 import com.paltales.data.BookAPI;
 import com.paltales.data.MovieAPI;
-import com.paltales.data.MovieAdapter;
+import com.paltales.model.MovieAdapter;
 import com.paltales.model.Book;
-import com.paltales.data.BookAdapter;
+import com.paltales.model.BookAdapter;
 import com.paltales.model.Movie;
 
 import java.util.List;
