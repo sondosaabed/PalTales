@@ -171,4 +171,9 @@ public class BookAPI {
         }
         return books;
     }
+
+    public void clearQueue(){
+        if(requestQueue != null)
+            requestQueue.cancelAll(this);
+    }
 }

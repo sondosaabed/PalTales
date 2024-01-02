@@ -90,5 +90,10 @@ public class MovieAPI {
         }
         return movies;
     }
+
+    public void clearQueue(){
+        if(requestQueue != null)
+            requestQueue.cancelAll(this);
+    }
 }
 
