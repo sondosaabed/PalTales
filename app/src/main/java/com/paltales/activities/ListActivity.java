@@ -28,6 +28,8 @@ public class ListActivity extends AppCompatActivity {
     private Button other;
     List<Book> books;
     List<Movie> movies;
+    BookAPI bookApiHandler;
+    MovieAPI movieApiHandler;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list);
@@ -55,7 +57,7 @@ public class ListActivity extends AppCompatActivity {
             In this method the list shown is based on the choice of the user
          */
         if (type.equals("books")) {
-            BookAPI bookApiHandler = new BookAPI(this);
+            bookApiHandler = new BookAPI(this);
             bookApiHandler.getItems(new BookAPI.BookAPII() {
                 @Override
                 public void onSuccess(List<Book> books) {
@@ -70,7 +72,7 @@ public class ListActivity extends AppCompatActivity {
                 }
             });
         }else if(type.equals("movies")){
-            MovieAPI movieApiHandler = new MovieAPI(this);
+            movieApiHandler = new MovieAPI(this);
             movieApiHandler.getItems(new MovieAPI.MovieAPII() {
                 @Override
                 public void onSuccess(List<Movie> movies) {
@@ -103,9 +105,19 @@ public class ListActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(bookApiHandler != null)
+            bookApiHandler.clearQueue();
+        if(movieApiHandler != null)
+            movieApiHandler.clearQueue();
+    }
+
     /*
-        Getters & Setters
-     */
+                Getters & Setters
+             */
     public ListView getList() {
         return list;
     }
