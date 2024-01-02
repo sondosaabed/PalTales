@@ -56,9 +56,9 @@ public class ShowItemActivity extends AppCompatActivity {
                     Book book = (Book) obj;
                     getTtitle().setText(book.getTitle());
                     getUrl().setText(book.getKey());
-                    getYearOrAuthor().setText(book.getAuthor());
+//                    getYearOrAuthor().setText(book.getAuthor());
                     getPlot().setText(book.getDescription());
-                    Picasso.get().load(book.getCover()).centerInside().into(getImage());
+                    Picasso.get().load(book.getCover()).into(getImage());
                 }
             }
             handle_back(getBack(), type);
