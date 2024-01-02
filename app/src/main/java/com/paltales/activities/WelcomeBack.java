@@ -46,6 +46,7 @@ public class WelcomeBack extends AppCompatActivity {
                 intent = new Intent(this, LoginActivity.class);
             }
             startActivity(intent);
+            finish();
         });
     }
 
