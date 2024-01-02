@@ -52,7 +52,41 @@ A complete android app was developed that provides the following functionalities
 
 ### DEMO (UX)
 
+<div align=center>
+
+</div>
+
 #### (UI)
+<div>
+    <table>
+        <tr>
+            <th>Getting Started</th>
+            <th>Create Account</th>
+            <th>Login</th>
+            <th>Welcome Back</th>
+            <th>Home option</th>
+        </tr>
+        <tr>
+            <td><img src="https://github.com/sondosaabed/PalTales/assets/65151701/2512d561-bda9-4d02-81eb-167eb03fda9b" alt="Getting Started"></td>
+            <td><img src="https://github.com/sondosaabed/PalTales/assets/65151701/2cf903ce-852f-40ea-8d7f-385c77dc5d6c" alt="Create Account"></td>
+            <td><img src="https://github.com/sondosaabed/PalTales/assets/65151701/1e56c12d-df0f-4025-b86c-56eaef898584" alt="Login"></td>
+            <td><img src="https://github.com/sondosaabed/PalTales/assets/65151701/8141c9d1-1d3a-4f5c-845e-6b707aed207b" alt="Welcome Back"></td>
+            <td><img src="https://github.com/sondosaabed/PalTales/assets/65151701/8f3e5425-6870-41c6-9021-a8a4e123e6e9" alt="Home option"></td>
+        </tr>
+        <tr>
+            <th>Book List</th>
+            <th>Book Item</th>
+            <th>Movie List</th>
+            <th>Movie Item</th>
+        </tr>
+        <tr>
+            <td><img src="https://github.com/sondosaabed/PalTales/assets/65151701/4d9a903b-0f90-47c6-86a2-fec741718792" alt="Book List"></td>
+            <td><img src="https://github.com/sondosaabed/PalTales/assets/65151701/c26ab27c-06ac-4afa-80ca-08a84101de11" alt="Book Item"></td>
+            <td><img src="https://github.com/sondosaabed/PalTales/assets/65151701/93ef84c9-ae96-4168-a973-7458a9d517f7" alt="Movie List"></td>
+            <td><img src="https://github.com/sondosaabed/PalTales/assets/65151701/c99d4773-13e9-4651-8013-ced2d9e11839" alt="Movie Item"></td>
+        </tr>
+    </table>
+</div>
 
 ### Resources 
 - ![Stackoverflow custom item of listvew](https://stackoverflow.com/questions/15832335/android-custom-row-item-for-listview)
