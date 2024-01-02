@@ -63,6 +63,7 @@ public class LoginActivity extends AppCompatActivity {
         dontHave.setOnClickListener(e->{
             Intent intent = new Intent(this, CreateAccountActivity.class);
             startActivity(intent);
+            finish();
         });
     }
 
@@ -84,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     Intent intent = new Intent(this, Home.class);
                     startActivity(intent);
+                    finish();
                 } else {
                     // Wrong authentication
                     getUserNameValid().setVisibility(View.VISIBLE);
