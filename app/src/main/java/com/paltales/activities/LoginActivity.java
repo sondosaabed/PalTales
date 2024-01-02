@@ -25,10 +25,10 @@ public class LoginActivity extends AppCompatActivity {
     */
     private Button login;
     private Button dontHave;
-    private TextView email;
+    private TextView userName;
     private TextView password;
     private TextView answer; // I will use it to display the answer
-    private TextView emailValid;
+    private TextView userNameValid;
     private TextView passValid;
     private CheckBox remeberMe;
 
@@ -46,16 +46,15 @@ public class LoginActivity extends AppCompatActivity {
         setLogin(findViewById(R.id.btnLogin));
         setDontHave(findViewById(R.id.dontHave));
 
-        setEmail(findViewById(R.id.email));
+        setUserName(findViewById(R.id.email));
         setPassword(findViewById(R.id.password));
         setAnswer(findViewById(R.id.txtResult));
 
-        setEmailValid(findViewById(R.id.emailValidation));
+        setUserNameValid(findViewById(R.id.emailValidation));
         setPassValid(findViewById(R.id.passValidation));
 
         setRemeberMe(findViewById(R.id.remeberMe));
 
-        handle_remeberMe(getRemeberMe());
         handle_login(getLogin());
         handle_dont_have(getDontHave());
     }
@@ -67,30 +66,29 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void handle_remeberMe(CheckBox remeberMe) {
-        boolean val = remeberMe.isChecked();
-        if(val==true)
-            Preferences.setRememberME(this);
-    }
 
     /* Handlers  */
     private void handle_login(Button login) {
         login.setOnClickListener(view -> {
-            String enteredEmail = getEmail().getText().toString();
+            String enteredUsername = getUserName().getText().toString();
             String enteredPassword = getPassword().getText().toString();
+            boolean remeberMe = getRemeberMe().isChecked();
+
             try {
-                Login enteredlogin = new Login(enteredEmail, EncryptPassword.encryptPassword(enteredPassword));
+                Login enteredlogin = new Login(enteredUsername, EncryptPassword.encryptPassword(enteredPassword));
 
                 boolean authorized = Authenticator.authorize(enteredlogin ,this);
                 if (authorized) {
+                    if(remeberMe){
+                        Preferences.updateRememberMeStatus(enteredUsername,this);
+                    }
                     Intent intent = new Intent(this, Home.class);
                     startActivity(intent);
                 } else {
                     // Wrong authentication
-                    getEmailValid().setVisibility(View.VISIBLE);
+                    getUserNameValid().setVisibility(View.VISIBLE);
                     getPassValid().setVisibility(View.VISIBLE);
-                    getEmailValid().setText("Wrong Username");
-                    getAnswer().setText("Try Again!");
+                    getAnswer().setText(R.string.try_again);
                 }
             } catch (NoSuchAlgorithmException e) {
                 throw new RuntimeException(e);
@@ -107,11 +105,11 @@ public class LoginActivity extends AppCompatActivity {
     public void setLogin(Button login) {
         this.login = login;
     }
-    public TextView getEmail() {
-        return email;
+    public TextView getUserName() {
+        return userName;
     }
-    public void setEmail(TextView email) {
-        this.email = email;
+    public void setUserName(TextView userName) {
+        this.userName = userName;
     }
     public TextView getPassword() {
         return password;
@@ -125,11 +123,11 @@ public class LoginActivity extends AppCompatActivity {
     public void setAnswer(TextView answer) {
         this.answer = answer;
     }
-    public TextView getEmailValid() {
-        return emailValid;
+    public TextView getUserNameValid() {
+        return userNameValid;
     }
-    public void setEmailValid(TextView emailValid) {
-        this.emailValid = emailValid;
+    public void setUserNameValid(TextView userNameValid) {
+        this.userNameValid = userNameValid;
     }
     public TextView getPassValid() {
         return passValid;
