@@ -51,6 +51,7 @@ public class GettingStarted extends AppCompatActivity {
         start.setOnClickListener(view -> {
             Intent intent = new Intent(this, CreateAccountActivity.class);
             startActivity(intent);
+            finish();
         });
     }
 
