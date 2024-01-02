@@ -63,6 +63,12 @@ A complete android app was developed that provides the following functionalities
 
 <div align=center>
 
+
+
+https://github.com/sondosaabed/PalTales/assets/65151701/98d64187-f17b-4da4-a96f-ade2442ca103
+
+
+
 </div>
 
 
