@@ -97,11 +97,10 @@ public class Preferences {
          */
         ArrayList<Account> accounts = loadAccounts(context);
         for (Account account : accounts) {
-            if (account.getLogin().getUserName().equals(username)) {
-                account.getLogin().setRememberMe(true);
-            }else {
-                account.getLogin().setRememberMe(false);
-            }
+            // this if statmnet was simplified with android studio
+            account.getLogin().setRememberMe(
+                    account.getLogin().getUserName().equals(username)
+            );
         }
         setHasRemberMe(context);
         saveAccounts(accounts);

@@ -1,9 +1,5 @@
 package com.paltales.model;
 
-import com.paltales.utils.EncryptPassword;
-
-import java.security.NoSuchAlgorithmException;
-
 /*
 This login Object class will be used in logins
  */
