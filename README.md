@@ -24,7 +24,7 @@ A complete android app was developed that provides the following functionalities
   - **Tow Informational Activites**:
     - Getting Started: If (is first time) and redirects to create account.
     - Welcome Back: If rember me is set leads to Home, if there is no remeber me then Login.
-- The activites have **variety of attributes**: TextEdit(Diffrent input Types), TextView, Button, ListView, ImageView, ScrollView, CheckBox
+- The activites have **variety of attributes**: TextEdit(Diffrent input Types), TextView, Button, ListView, ImageView, ScrollView, CheckBox, ImageButton
 - The layouts have **variety of Layout Managers**: Contriant Layout, Relative Layout, Linear Layout.
 - The project have **Centralized and coceptual design** styles (light and dark themes), that are related to the concept (Palestine Flag Colors) 
 
