@@ -36,7 +36,11 @@ public class WelcomeBack extends AppCompatActivity {
     private void handle_start(Button start) {
         start.setOnClickListener(view -> {
             Intent intent;
-            if(Preferences.isRememberMe(this)) {
+            if(Preferences.hasRememberMeAccount(this)) {
+                /*
+                    Because they wanted to be remembered
+                    so get to home immeadiatly without Login
+                 */
                 intent = new Intent(this, Home.class);
             }else{
                 intent = new Intent(this, LoginActivity.class);

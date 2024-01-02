@@ -42,15 +42,12 @@ public class Preferences {
         editor.apply();
     }
 
-    public static boolean isRememberMe(Context context) {
-        /*
-            Setting the default value of rememebr me as false
-         */
+    public static boolean hasRememberMeAccount(Context context) {
         preferences = getPreferences(context);
-        return preferences.getBoolean(REMEMBER, false);
+        return preferences.getBoolean(REMEMBER, true);
     }
 
-    public static void setRememberME(Context context) {
+    private static void setHasRemberMe(Context context) {
         preferences = getPreferences(context);
         editor = preferences.edit();
         editor.putBoolean(REMEMBER, true);
@@ -90,6 +87,23 @@ public class Preferences {
          */
         ArrayList<Account> accounts = loadAccounts(context);
         accounts.add(account);
+        saveAccounts(accounts);
+    }
+
+    public static void updateRememberMeStatus(String username, Context context) throws NoSuchAlgorithmException {
+        /*
+            Only set the speified last account that wants to be remberred
+            so no confusion occurs and the others will be false
+         */
+        ArrayList<Account> accounts = loadAccounts(context);
+        for (Account account : accounts) {
+            if (account.getLogin().getUserName().equals(username)) {
+                account.getLogin().setRememberMe(true);
+            }else {
+                account.getLogin().setRememberMe(false);
+            }
+        }
+        setHasRemberMe(context);
         saveAccounts(accounts);
     }
 
